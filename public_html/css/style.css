@@ -757,29 +757,24 @@ section {
     font-size: 1.1rem;
     opacity: 0.9;
 }
-
-.contact-list {
+/* Corregir la visibilidad de los iconos en la sección de contacto rápido */
+.contact-list i {
+    font-size: 1.5rem;
+    width: 50px;
+    height: 50px;
+    background-color: var(--white); /* Fondo en color blanco */
+    border-radius: 50%;
     display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
+    align-items: center;
+    justify-content: center;
+    color: var(--secondary); /* Color naranja para mejor visibilidad */
+    transition: var(--transition);
 }
 
 .contact-list li {
     display: flex;
     align-items: center;
     gap: var(--space-md);
-}
-
-.contact-list i {
-    font-size: 1.5rem;
-    width: 50px;
-    height: 50px;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: var(--secondary); /* Color naranja para mejor visibilidad */
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .contact-list h4 {
@@ -794,6 +789,11 @@ section {
 
 .contact-list a:hover {
     color: var(--secondary);
+}
+
+.contact-list i:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
 }
 
 .contact-form {
