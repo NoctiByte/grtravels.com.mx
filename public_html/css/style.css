@@ -681,6 +681,58 @@ section {
     font-size: 0.9rem;
 }
 
+/* Añadir estos estilos para los controles de testimonios */
+
+/* Navegación de testimonios */
+.testimonial-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: var(--space-md);
+    gap: var(--space-md);
+}
+
+.testimonial-prev,
+.testimonial-next {
+    background: var(--primary);
+    color: var(--white);
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.testimonial-prev:hover,
+.testimonial-next:hover {
+    background: var(--primary-dark);
+    transform: scale(1.1);
+}
+
+.testimonial-indicators {
+    display: flex;
+    gap: 8px;
+}
+
+.testimonial-indicators .indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--gray-300);
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.testimonial-indicators .indicator.active {
+    background: var(--primary);
+    transform: scale(1.3);
+}
+
 /* Formulario de Contacto Rápido */
 .quick-contact {
     background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);

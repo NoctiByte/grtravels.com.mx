@@ -5,6 +5,7 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     initHeroSlider();
+    initTestimonialsSlider(); // Añadir esta línea
 });
 
 function initHeroSlider() {
@@ -248,4 +249,127 @@ function initHeroSlider() {
     
     // Inicializar el slider
     heroSlider.init();
+}
+
+/**
+ * Inicializar slider de testimonios
+ */
+function initTestimonialsSlider() {
+    const testimonialItems = document.querySelectorAll('.testimonial-item');
+    const testimonialsContainer = document.querySelector('.testimonials-slider');
+    
+    if (testimonialItems.length <= 1 || !testimonialsContainer) return;
+    
+    // Muestra el primer testimonio
+    testimonialItems[0].classList.add('active');
+    
+    let currentIndex = 0;
+    let interval;
+    let isAnimating = false;
+    
+    // Crear controles de navegación
+    const navigation = document.createElement('div');
+    navigation.className = 'testimonial-nav';
+    
+    const prevBtn = document.createElement('button');
+    prevBtn.className = 'testimonial-prev';
+    prevBtn.setAttribute('aria-label', 'Testimonio anterior');
+    prevBtn.innerHTML = '<i class="fas fa-chevron-left"></i>';
+    
+    const nextBtn = document.createElement('button');
+    nextBtn.className = 'testimonial-next';
+    nextBtn.setAttribute('aria-label', 'Testimonio siguiente');
+    nextBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
+    
+    const indicators = document.createElement('div');
+    indicators.className = 'testimonial-indicators';
+    
+    testimonialItems.forEach((_, index) => {
+        const dot = document.createElement('button');
+        dot.className = index === 0 ? 'indicator active' : 'indicator';
+        indicators.appendChild(dot);
+    });
+    
+    navigation.appendChild(prevBtn);
+    navigation.appendChild(indicators);
+    navigation.appendChild(nextBtn);
+    
+    testimonialsContainer.appendChild(navigation);
+    
+    // Función para cambiar testimonios
+    function showTestimonial(index) {
+        if (isAnimating) return;
+        isAnimating = true;
+        
+        testimonialItems[currentIndex].classList.remove('active');
+        document.querySelectorAll('.testimonial-indicators .indicator')[currentIndex].classList.remove('active');
+        
+        currentIndex = index;
+        
+        testimonialItems[currentIndex].classList.add('active');
+        document.querySelectorAll('.testimonial-indicators .indicator')[currentIndex].classList.add('active');
+        
+        setTimeout(() => {
+            isAnimating = false;
+        }, 800);
+    }
+    
+    // Navegación con botones
+    prevBtn.addEventListener('click', () => {
+        const prevIndex = (currentIndex - 1 + testimonialItems.length) % testimonialItems.length;
+        showTestimonial(prevIndex);
+        resetInterval();
+    });
+    
+    nextBtn.addEventListener('click', () => {
+        const nextIndex = (currentIndex + 1) % testimonialItems.length;
+        showTestimonial(nextIndex);
+        resetInterval();
+    });
+    
+    // Navegación con indicadores
+    document.querySelectorAll('.testimonial-indicators .indicator').forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            if (currentIndex !== index) {
+                showTestimonial(index);
+                resetInterval();
+            }
+        });
+    });
+    
+    // Rotación automática
+    function startInterval() {
+        interval = setInterval(() => {
+            if (!document.hidden) {
+                const nextIndex = (currentIndex + 1) % testimonialItems.length;
+                showTestimonial(nextIndex);
+            }
+        }, 6000); // Cambiar cada 6 segundos
+    }
+    
+    function resetInterval() {
+        clearInterval(interval);
+        startInterval();
+    }
+    
+    // Iniciar rotación automática
+    startInterval();
+    
+    // Pausar al interactuar
+    testimonialsContainer.addEventListener('mouseenter', () => {
+        clearInterval(interval);
+    });
+    
+    testimonialsContainer.addEventListener('mouseleave', () => {
+        startInterval();
+    });
+    
+    // Manejar visibilidad de página
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            clearInterval(interval);
+        } else {
+            startInterval();
+        }
+    });
 }
