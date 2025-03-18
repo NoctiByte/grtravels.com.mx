@@ -1,0 +1,38 @@
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de configuración locales
+/config.local.php
+*.log
+
+# Directorios de dependencias
+/node_modules/
+/vendor/
+
+# Archivos de caché
+*.cache
+.sass-cache/
+.phpunit.result.cache
+
+# Archivos temporales
+*.tmp
+*.bak
+*.swp
+*~
+
+# Archivos de entorno
+.env
+.env.local
+.env.*.local
+
+# Directorios de almacenamiento local
+/storage/*.key
+/storage/logs/*
+/storage/app/public/*
+
+# Archivos específicos de IDE
+/.idea/
+/.vscode/
+*.sublime-project
+*.sublime-workspace

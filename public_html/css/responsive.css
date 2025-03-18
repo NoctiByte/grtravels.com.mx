@@ -1,0 +1,227 @@
+/* Archivo: /home/xyz/var/www/grtravels.online/public_html/css/responsive.css */
+
+/* Tabletas grandes y escritorios pequeños */
+@media (max-width: 1200px) {
+    .container {
+        max-width: 960px;
+    }
+    
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+    }
+}
+
+/* Tabletas */
+@media (max-width: 992px) {
+    .container {
+        max-width: 720px;
+    }
+    
+    .header-cta .btn {
+        padding: 0.5rem 1rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+    
+    .section-header h2 {
+        font-size: 2rem;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        row-gap: var(--space-lg);
+    }
+    
+    .fleet-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+    
+    .contact-info {
+        text-align: center;
+    }
+    
+    .contact-list li {
+        justify-content: center;
+    }
+}
+
+/* Dispositivos móviles grandes */
+@media (max-width: 768px) {
+    .container {
+        max-width: 540px;
+    }
+    
+    .header-content {
+        position: relative;
+    }
+    
+    .mobile-toggle {
+        display: block;
+    }
+    
+    .main-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 320px;
+        height: 100vh;
+        background: var(--white);
+        box-shadow: var(--box-shadow);
+        padding: 100px var(--space-lg) var(--space-lg);
+        z-index: 1000;
+        transition: right 0.3s ease;
+    }
+    
+    .main-nav.active {
+        right: 0;
+    }
+    
+    .main-nav .nav-list {
+        flex-direction: column;
+        gap: var(--space-sm);
+    }
+    
+    .main-nav a {
+        display: block;
+        padding: var(--space-md) var(--space-sm);
+        font-size: 1.1rem;
+    }
+    
+    .header-cta {
+        display: none;
+    }
+    
+    .mobile-toggle.active .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    
+    .mobile-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .mobile-toggle.active .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+    
+    body.menu-open {
+        overflow: hidden;
+    }
+    
+    /* Overlay cuando el menú está activo */
+    body::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    
+    body.menu-open::after {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .hero-slider {
+        height: 500px;
+    }
+    
+    .hero-content {
+        text-align: center;
+        max-width: 100%;
+        padding: 0 var(--space-md);
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+    
+    .services-grid,
+    .destinations-slider {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .section {
+        padding: var(--space-lg) 0;
+    }
+    
+    .section-header {
+        margin-bottom: var(--space-lg);
+    }
+    
+    .testimonial-content {
+        padding: var(--space-lg);
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        gap: var(--space-md);
+        text-align: center;
+    }
+    
+    .footer-legal {
+        justify-content: center;
+    }
+}
+
+/* Dispositivos móviles pequeños */
+@media (max-width: 576px) {
+    .hero-slider {
+        height: 450px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: var(--space-sm);
+    }
+    
+    .hero-buttons .btn {
+        width: 100%;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .client {
+        flex-direction: column;
+        text-align: center;
+    }
+}

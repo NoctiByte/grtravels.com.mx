@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Servicios de transporte turístico en Puerto Vallarta y Bahía de Banderas. Tours, traslados y excursiones en autobuses y sprinters de lujo.">
+    <title>GR Travels | Transporte Turístico en Puerto Vallarta</title>
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+    
+    <!-- Font Awesome para íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header y Navegación -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="img/logo.webp" alt="GR Travels Logo" width="180" height="60">
+                    </a>
+                </div>
+                
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="active">Inicio</a></li>
+                        <li><a href="destinos.html">Destinos</a></li>
+                        <li><a href="servicios.html">Servicios</a></li>
+                        <li><a href="flota.html">Nuestra Flota</a></li>
+                        <li><a href="reservas.html">Reservas</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="header-cta">
+                    <a href="tel:+523221234567" class="phone-link">
+                        <i class="fas fa-phone-alt"></i> 322 123 4567
+                    </a>
+                    <a href="reservas.html" class="btn btn-primary">Reservar Ahora</a>
+                </div>
+                
+                <button class="mobile-toggle" aria-label="Abrir menú">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section con Video/Slider -->
+    <section class="hero">
+        <div class="hero-slider">
+            <div class="slide active" style="background-image: url('img/hero/vallarta.webp');">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1 class="animate-up">Descubre Puerto Vallarta</h1>
+                        <p class="animate-up delay-200">Experimenta lo mejor de la Bahía de Banderas con nuestros servicios de transporte premium</p>
+                        <div class="hero-buttons animate-up delay-400">
+                            <a href="destinos.html" class="btn btn-primary">Explorar Destinos</a>
+                            <a href="flota.html" class="btn btn-outline">Conocer Nuestra Flota</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('img/hero/autobus.webp');">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1>Servicio de Clase Mundial</h1>
+                        <p>Vehículos de lujo, conductores profesionales y atención personalizada</p>
+                        <div class="hero-buttons">
+                            <a href="servicios.html" class="btn btn-primary">Nuestros Servicios</a>
+                            <a href="reservas.html" class="btn btn-outline">Cotizar Ahora</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('img/hero/vallarta3.webp');">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1>Tours Personalizados</h1>
+                        <p>Creamos experiencias únicas adaptadas a tus necesidades</p>
+                        <div class="hero-buttons">
+                            <a href="reservas.html" class="btn btn-primary">Reservar Tour</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slider-nav">
+            <button class="prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+            <div class="dots">
+                <button class="dot active" aria-label="Slide 1"></button>
+                <button class="dot" aria-label="Slide 2"></button>
+                <button class="dot" aria-label="Slide 3"></button>
+            </div>
+            <button class="next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+    <!-- Servicios Destacados -->
+    <section class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nuestros Servicios</h2>
+                <p>Ofrecemos soluciones completas de transporte turístico en Puerto Vallarta</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shuttle-van"></i>
+                    </div>
+                    <h3>Traslados Aeropuerto</h3>
+                    <p>Recogida y traslado puntual desde el Aeropuerto Internacional de Puerto Vallarta a su hotel.</p>
+                    <a href="servicios.html#airport" class="link-arrow">Más Información <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3>Tours Guiados</h3>
+                    <p>Excursiones a los mejores destinos de la Bahía con guías expertos bilingües.</p>
+                    <a href="servicios.html#tours" class="link-arrow">Más Información <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Eventos Grupales</h3>
+                    <p>Transporte para bodas, conferencias y eventos empresariales con vehículos de alta capacidad.</p>
+                    <a href="servicios.html#groups" class="link-arrow">Más Información <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-route"></i>
+                    </div>
+                    <h3>Viajes Personalizados</h3>
+                    <p>Diseñamos rutas personalizadas según tus intereses y preferencias particulares.</p>
+                    <a href="servicios.html#custom" class="link-arrow">Más Información <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destinos Populares -->
+    <section class="destinations">
+        <div class="container">
+            <div class="section-header">
+                <h2>Destinos Populares</h2>
+                <p>Explore los lugares más atractivos de Puerto Vallarta y sus alrededores</p>
+            </div>
+            
+            <div class="destinations-slider">
+                <div class="destination-card">
+                    <img src="img/destinations/Sayulita.webp" alt="Sayulita" loading="lazy">
+                    <div class="destination-content">
+                        <h3>Sayulita</h3>
+                        <p>Pintoresco pueblo surfero con vibrante vida cultural</p>
+                        <a href="destinos.html#sayulita" class="btn btn-sm">Ver Detalles</a>
+                    </div>
+                </div>
+                
+                <div class="destination-card">
+                    <img src="img/destinations/islasmarietas.webp" alt="Islas Marietas" loading="lazy">
+                    <div class="destination-content">
+                        <h3>Islas Marietas</h3>
+                        <p>Reserva natural con playas escondidas y vida marina</p>
+                        <a href="destinos.html#marietas" class="btn btn-sm">Ver Detalles</a>
+                    </div>
+                </div>
+                
+                <div class="destination-card">
+                    <img src="img/destinations/sanpancho.webp" alt="San Pancho" loading="lazy">
+                    <div class="destination-content">
+                        <h3>San Pancho</h3>
+                        <p>Tranquilo pueblo costero con hermosas playas</p>
+                        <a href="destinos.html#sanpancho" class="btn btn-sm">Ver Detalles</a>
+                    </div>
+                </div>
+                
+                <div class="destination-card">
+                    <img src="img/destinations/tequila.webp" alt="Tequila" loading="lazy">
+                    <div class="destination-content">
+                        <h3>Tequila</h3>
+                        <p>Pueblo Mágico cuna de la bebida mexicana por excelencia</p>
+                        <a href="destinos.html#tequila" class="btn btn-sm">Ver Detalles</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="destinos.html" class="btn btn-primary">Ver Todos los Destinos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nuestra Flota -->
+    <section class="fleet">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nuestra Flota Premium</h2>
+                <p>Vehículos modernos, confortables y totalmente equipados para su seguridad</p>
+            </div>
+            
+            <div class="fleet-grid">
+                <div class="fleet-item">
+                    <div class="fleet-image">
+                        <img src="img/vehicles/sprinter.webp" alt="Mercedes-Benz Sprinter" loading="lazy">
+                    </div>
+                    <div class="fleet-details">
+                        <h3>Mercedes-Benz Sprinter</h3>
+                        <ul class="features">
+                            <li><i class="fas fa-users"></i> 15 pasajeros</li>
+                            <li><i class="fas fa-snowflake"></i> Aire acondicionado</li>
+                            <li><i class="fas fa-wifi"></i> WiFi a bordo</li>
+                            <li><i class="fas fa-tv"></i> Pantallas HD</li>
+                        </ul>
+                        <a href="flota.html#sprinter" class="btn btn-outline">Más Detalles</a>
+                    </div>
+                </div>
+                
+                <div class="fleet-item">
+                    <div class="fleet-image">
+                        <img src="img/vehicles/autobus.webp" alt="Autobús Turístico" loading="lazy">
+                    </div>
+                    <div class="fleet-details">
+                        <h3>Autobús Turístico</h3>
+                        <ul class="features">
+                            <li><i class="fas fa-users"></i> 45 pasajeros</li>
+                            <li><i class="fas fa-snowflake"></i> Aire acondicionado</li>
+                            <li><i class="fas fa-toilet"></i> Baño a bordo</li>
+                            <li><i class="fas fa-couch"></i> Asientos reclinables</li>
+                        </ul>
+                        <a href="flota.html#autobus" class="btn btn-outline">Más Detalles</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>Lo que Dicen Nuestros Clientes</h2>
+                <p>Experiencias de quienes han disfrutado de nuestros servicios</p>
+            </div>
+            
+            <div class="testimonials-slider">
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Excelente servicio para nuestra boda en Punta Mita. El autobús llegó puntual y todos nuestros invitados pudieron disfrutar sin preocuparse por el transporte."</p>
+                        <div class="client">
+                            <img src="img/testimonials/client1.jpg" alt="María García" loading="lazy">
+                            <div class="client-info">
+                                <h4>María García</h4>
+                                <span>Boda en Punta Mita</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Contratamos el tour a Sayulita y San Pancho. El guía fue muy amable y conocedor. Sin duda la mejor forma de conocer estos destinos."</p>
+                        <div class="client">
+                            <img src="img/testimonials/client2.jpg" alt="John Smith" loading="lazy">
+                            <div class="client-info">
+                                <h4>John Smith</h4>
+                                <span>Tour a Sayulita</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Usamos su servicio de traslado desde el aeropuerto y fue realmente cómodo. Puntualidad, amabilidad y vehículos impecables."</p>
+                        <div class="client">
+                            <img src="img/testimonials/client3.jpg" alt="Roberto Méndez" loading="lazy">
+                            <div class="client-info">
+                                <h4>Roberto Méndez</h4>
+                                <span>Traslado Aeropuerto</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulario de Contacto Rápido -->
+    <section class="quick-contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h2>¿Listo para Reservar?</h2>
+                    <p>Contáctanos para planificar tu próximo viaje o evento en Puerto Vallarta.</p>
+                    <ul class="contact-list">
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Llámanos</h4>
+                                <a href="tel:+523223563191">322 356 3191</a>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <a href="mailto:info@grtravels.online">info@grtravels.online</a>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fab fa-whatsapp"></i>
+                            <div>
+                                <h4>WhatsApp</h4>
+                                <a href="https://wa.me/523223563191">322 356 3191</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="contact-form">
+                    <form id="inquiry-form">
+                        <div class="form-group">
+                            <label for="name">Nombre Completo</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Teléfono</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Tipo de Servicio</label>
+                            <select id="service" name="service">
+                                <option value="">Seleccione un servicio</option>
+                                <option value="airport">Traslado Aeropuerto</option>
+                                <option value="tour">Tour Guiado</option>
+                                <option value="event">Evento Grupal</option>
+                                <option value="custom">Viaje Personalizado</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensaje</label>
+                            <textarea id="message" name="message" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Enviar Consulta</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <img src="img/logo-white.png" alt="GR Travels Logo" class="footer-logo" width="160" height="55">
+                    <p>Somos una empresa líder en servicios de transporte turístico en Puerto Vallarta, comprometidos con ofrecer experiencias de viaje excepcionales.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="destinos.html">Destinos</a></li>
+                        <li><a href="servicios.html">Servicios</a></li>
+                        <li><a href="flota.html">Nuestra Flota</a></li>
+                        <li><a href="reservas.html">Reservas</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-services">
+                    <h3>Servicios</h3>
+                    <ul>
+                        <li><a href="servicios.html#airport">Traslados Aeropuerto</a></li>
+                        <li><a href="servicios.html#tours">Tours Guiados</a></li>
+                        <li><a href="servicios.html#groups">Eventos Grupales</a></li>
+                        <li><a href="servicios.html#custom">Viajes Personalizados</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>Contacto</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>Blvd. Francisco Medina Ascencio 2920, Puerto Vallarta, Jalisco</p>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <p><a href="tel:+523223563191">322 356 3191</a></p>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <p><a href="mailto:info@grtravels.online">info@grtravels.online</a></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 GR Travels. Todos los derechos reservados.</p>
+                <ul class="footer-legal">
+                    <li><a href="privacidad.html">Política de Privacidad</a></li>
+                    <li><a href="terminos.html">Términos y Condiciones</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/slider.js"></script>
+    <script src="js/booking.js"></script>
+</body>
+</html>

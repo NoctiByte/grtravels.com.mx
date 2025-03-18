@@ -1,0 +1,468 @@
+/* Archivo: /home/xyz/var/www/grtravels.online/public_html/css/animations.css */
+/* Animaciones para el sitio web GR Travels */
+
+/* Animaciones de entrada y salida */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeLeft {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeRight {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes zoom {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Animaciones para servicios */
+@keyframes rotateIcon {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(180deg);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Animaciones para sliders */
+@keyframes slideRight {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideLeft {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Animación para números de contador */
+@keyframes countUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animación para el botón flotante */
+@keyframes floatingButton {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Animación para mensajes de formulario */
+@keyframes slideDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Animación para carga */
+@keyframes spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Animación para botones */
+@keyframes btnPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 86, 179, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(0, 86, 179, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 86, 179, 0);
+    }
+}
+
+/* Animación para el header al hacer scroll */
+@keyframes shrinkHeader {
+    from {
+        padding: 1rem 0;
+    }
+    to {
+        padding: 0.5rem 0;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+}
+
+/* Animación para elementos de navegación */
+@keyframes borderAnimation {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+/* Animación para testimonios */
+@keyframes testimonialSlide {
+    0% {
+        opacity: 0;
+        transform: scale(0.9) translateX(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateX(0);
+    }
+}
+
+/* Animación para aparición de mensajes */
+@keyframes messageAppear {
+    0% {
+        max-height: 0;
+        opacity: 0;
+        transform: translateY(-10px);
+        padding: 0;
+    }
+    100% {
+        max-height: 200px;
+        opacity: 1;
+        transform: translateY(0);
+        padding: 1rem;
+    }
+}
+
+@keyframes messageFadeOut {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+
+/* Animaciones para hover */
+.hover-zoom {
+    transition: all 0.3s ease;
+}
+
+.hover-zoom:hover {
+    transform: scale(1.05);
+    z-index: 1;
+}
+
+.hover-lift {
+    transition: all 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.hover-rotate img {
+    transition: all 0.5s ease;
+}
+
+.hover-rotate:hover img {
+    transform: rotate(3deg) scale(1.05);
+}
+
+/* Clases de animación aplicables */
+.animate-fade-in {
+    animation: fadeIn 0.8s forwards;
+}
+
+.animate-fade-up {
+    animation: fadeUp 0.8s forwards;
+}
+
+.animate-fade-down {
+    animation: fadeDown 0.8s forwards;
+}
+
+.animate-fade-left {
+    animation: fadeLeft 0.8s forwards;
+}
+
+.animate-fade-right {
+    animation: fadeRight 0.8s forwards;
+}
+
+.animate-zoom {
+    animation: zoom 0.8s forwards;
+}
+
+.animate-pulse {
+    animation: pulse 2s infinite;
+}
+
+.animate-bounce {
+    animation: bounce 2s infinite;
+}
+
+/* Retrasos de animación */
+.delay-100 {
+    animation-delay: 100ms;
+}
+
+.delay-200 {
+    animation-delay: 200ms;
+}
+
+.delay-300 {
+    animation-delay: 300ms;
+}
+
+.delay-400 {
+    animation-delay: 400ms;
+}
+
+.delay-500 {
+    animation-delay: 500ms;
+}
+
+.delay-600 {
+    animation-delay: 600ms;
+}
+
+.delay-700 {
+    animation-delay: 700ms;
+}
+
+.delay-800 {
+    animation-delay: 800ms;
+}
+
+.delay-900 {
+    animation-delay: 900ms;
+}
+
+.delay-1000 {
+    animation-delay: 1000ms;
+}
+
+/* Animaciones para la carga inicial de la página */
+.page-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--primary);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.page-transition.loaded {
+    transform: translateY(-100%);
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spinner 1s linear infinite;
+}
+
+/* Animaciones para componentes específicos */
+.destination-card .btn {
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.3s ease 0.1s;
+}
+
+.destination-card:hover .btn {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Efecto de aparición secuencial para elementos en lista */
+.sequence-animation > * {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.sequence-animation > *:nth-child(1) {
+    animation: fadeUp 0.5s forwards 0.1s;
+}
+
+.sequence-animation > *:nth-child(2) {
+    animation: fadeUp 0.5s forwards 0.2s;
+}
+
+.sequence-animation > *:nth-child(3) {
+    animation: fadeUp 0.5s forwards 0.3s;
+}
+
+.sequence-animation > *:nth-child(4) {
+    animation: fadeUp 0.5s forwards 0.4s;
+}
+
+.sequence-animation > *:nth-child(5) {
+    animation: fadeUp 0.5s forwards 0.5s;
+}
+
+.sequence-animation > *:nth-child(6) {
+    animation: fadeUp 0.5s forwards 0.6s;
+}
+
+/* Animación para botón de llamada a la acción principal */
+.btn-primary.with-pulse {
+    animation: btnPulse 2s infinite;
+}
+
+/* Animaciones para feedback de formularios */
+.success-message,
+.error-message {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: var(--border-radius);
+    animation: messageAppear 0.5s forwards;
+}
+
+.success-message {
+    background-color: rgba(40, 167, 69, 0.1);
+    border-left: 4px solid var(--success);
+    color: var(--success);
+}
+
+.error-message {
+    background-color: rgba(220, 53, 69, 0.1);
+    border-left: 4px solid var(--error);
+    color: var(--error);
+}
+
+.fade-out {
+    animation: messageFadeOut 0.5s forwards;
+}
