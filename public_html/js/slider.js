@@ -5,16 +5,14 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     initHeroSlider();
-    initTestimonialsSlider(); // Añadir esta línea
+    // Otras inicializaciones...
+    initTestimonialsSlider();
 });
 
 function initHeroSlider() {
     const heroSlider = {
         container: document.querySelector('.hero-slider'),
         slides: document.querySelectorAll('.hero-slider .slide'),
-        dots: document.querySelectorAll('.slider-nav .dot'),
-        prevBtn: document.querySelector('.slider-nav .prev'),
-        nextBtn: document.querySelector('.slider-nav .next'),
         currentIndex: 0,
         interval: null,
         animationInProgress: false,
@@ -22,151 +20,129 @@ function initHeroSlider() {
         init: function() {
             if (!this.container || this.slides.length <= 1) return;
             
-            this.setupInitialState();
-            this.setupNavigation();
-            this.setupTouchEvents();
-            this.startAutoplay();
-            this.setupVisibilityChange();
-            
-            // Si no hay botones de navegación, crearlos
-            if (!this.prevBtn || !this.nextBtn) {
-                this.createNavButtons();
-            }
-        },
-        
-        setupInitialState: function() {
             // Activar el primer slide
             this.slides[0].classList.add('active');
             
-            // Activar el primer dot si existe
-            if (this.dots && this.dots.length > 0) {
-                this.dots[0].classList.add('active');
-            }
+            // Crear los dots de navegación
+            this.createDots();
+            
+            // Configurar eventos táctiles
+            this.setupTouchEvents();
+            
+            // Iniciar rotación automática
+            this.startAutoplay();
+            
+            // Manejar cambios de visibilidad
+            this.setupVisibilityChange();
         },
         
-        setupNavigation: function() {
-            // Configurar botones prev/next si existen
-            if (this.prevBtn) {
-                this.prevBtn.addEventListener('click', () => {
-                    this.stopAutoplay();
-                    this.navigate('prev');
-                    this.startAutoplay();
+        createDots: function() {
+            const dotsContainer = document.querySelector('.hero-slider .dots');
+            if (!dotsContainer) return;
+            
+            // Limpiar contenedor si ya tiene dots
+            dotsContainer.innerHTML = '';
+            
+            // Crear un dot por cada slide
+            for (let i = 0; i < this.slides.length; i++) {
+                const dot = document.createElement('button');
+                dot.className = i === 0 ? 'dot active' : 'dot';
+                dot.setAttribute('aria-label', `Ir a la diapositiva ${i + 1}`);
+                
+                // Añadir evento de clic
+                dot.addEventListener('click', () => {
+                    if (this.currentIndex !== i && !this.animationInProgress) {
+                        this.goToSlide(i);
+                        this.resetAutoplay();
+                    }
                 });
+                
+                dotsContainer.appendChild(dot);
             }
             
-            if (this.nextBtn) {
-                this.nextBtn.addEventListener('click', () => {
-                    this.stopAutoplay();
-                    this.navigate('next');
-                    this.startAutoplay();
-                });
-            }
-            
-            // Configurar dots si existen
-            if (this.dots && this.dots.length > 0) {
-                this.dots.forEach((dot, index) => {
-                    dot.addEventListener('click', () => {
-                        if (this.currentIndex !== index) {
-                            this.stopAutoplay();
-                            this.goToSlide(index);
-                            this.startAutoplay();
-                        }
-                    });
-                });
-            }
+            this.dots = dotsContainer.querySelectorAll('.dot');
         },
         
         setupTouchEvents: function() {
             let touchStartX = 0;
             let touchEndX = 0;
+            let touchStartY = 0;
+            let touchEndY = 0;
             
             this.container.addEventListener('touchstart', (e) => {
                 touchStartX = e.changedTouches[0].screenX;
+                touchStartY = e.changedTouches[0].screenY;
                 this.stopAutoplay();
             }, {passive: true});
             
             this.container.addEventListener('touchend', (e) => {
                 touchEndX = e.changedTouches[0].screenX;
+                touchEndY = e.changedTouches[0].screenY;
                 
-                if (touchStartX - touchEndX > 50) {
-                    this.navigate('next');
-                } else if (touchEndX - touchStartX > 50) {
-                    this.navigate('prev');
+                // Calcular la distancia en X e Y
+                const deltaX = touchStartX - touchEndX;
+                const deltaY = touchStartY - touchEndY;
+                
+                // Solo considerar como swipe si el movimiento horizontal es mayor que el vertical
+                // y si supera un umbral mínimo
+                if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+                    if (deltaX > 0) {
+                        this.next();
+                    } else {
+                        this.prev();
+                    }
                 }
                 
                 this.startAutoplay();
             }, {passive: true});
         },
         
-        navigate: function(direction) {
-            if (this.animationInProgress || this.slides.length <= 1) return;
-            
-            this.animationInProgress = true;
-            
-            // Ocultar slide actual
-            this.slides[this.currentIndex].classList.remove('active');
-            if (this.dots && this.dots.length > 0) {
-                this.dots[this.currentIndex].classList.remove('active');
-            }
-            
-            // Calcular nuevo índice
-            if (direction === 'next') {
-                this.currentIndex = (this.currentIndex + 1) % this.slides.length;
-            } else {
-                this.currentIndex = (this.currentIndex - 1 + this.slides.length) % this.slides.length;
-            }
-            
-            // Mostrar nuevo slide
-            this.slides[this.currentIndex].classList.add('active');
-            if (this.dots && this.dots.length > 0) {
-                this.dots[this.currentIndex].classList.add('active');
-            }
-            
-            // Permitir nueva animación después de un tiempo
-            setTimeout(() => {
-                this.animationInProgress = false;
-            }, 800); // Duración de la transición
-        },
-        
         goToSlide: function(index) {
-            if (this.animationInProgress || index === this.currentIndex || index >= this.slides.length) return;
-            
+            if (this.animationInProgress) return;
             this.animationInProgress = true;
             
             // Ocultar slide actual
             this.slides[this.currentIndex].classList.remove('active');
-            if (this.dots && this.dots.length > 0) {
-                this.dots[this.currentIndex].classList.remove('active');
-            }
+            this.dots[this.currentIndex].classList.remove('active');
             
-            // Ir al slide seleccionado
+            // Actualizar índice
             this.currentIndex = index;
             
             // Mostrar nuevo slide
             this.slides[this.currentIndex].classList.add('active');
-            if (this.dots && this.dots.length > 0) {
-                this.dots[this.currentIndex].classList.add('active');
-            }
+            this.dots[this.currentIndex].classList.add('active');
             
             // Permitir nueva animación después de un tiempo
             setTimeout(() => {
                 this.animationInProgress = false;
-            }, 800);
+            }, 1200); // Coincidir con la duración de la transición
+        },
+        
+        next: function() {
+            const nextIndex = (this.currentIndex + 1) % this.slides.length;
+            this.goToSlide(nextIndex);
+        },
+        
+        prev: function() {
+            const prevIndex = (this.currentIndex - 1 + this.slides.length) % this.slides.length;
+            this.goToSlide(prevIndex);
         },
         
         startAutoplay: function() {
-            // Limpiar intervalo anterior si existe
             if (this.interval) {
                 clearInterval(this.interval);
             }
             
-            // Crear nuevo intervalo
             this.interval = setInterval(() => {
-                // Solo avanzar si la página está visible y no hay animación en progreso
                 if (!this.animationInProgress && !document.hidden) {
-                    this.navigate('next');
+                    this.next();
                 }
-            }, 5000); // Cambiar cada 5 segundos
+            }, 7000); // 7 segundos entre slides para dar tiempo a leer
+        },
+        
+        resetAutoplay: function() {
+            this.stopAutoplay();
+            this.startAutoplay();
         },
         
         stopAutoplay: function() {
@@ -176,74 +152,18 @@ function initHeroSlider() {
             }
         },
         
-        createNavButtons: function() {
-            // Crear contenedor de navegación
-            const sliderNav = document.createElement('div');
-            sliderNav.className = 'slider-nav';
-            
-            // Crear botón anterior
-            const prevBtn = document.createElement('button');
-            prevBtn.className = 'prev';
-            prevBtn.setAttribute('aria-label', 'Slide anterior');
-            prevBtn.innerHTML = '<i class="fas fa-chevron-left"></i>';
-            
-            // Crear botón siguiente
-            const nextBtn = document.createElement('button');
-            nextBtn.className = 'next';
-            nextBtn.setAttribute('aria-label', 'Slide siguiente');
-            nextBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
-            
-            // Crear contenedor para dots
-            const dotsContainer = document.createElement('div');
-            dotsContainer.className = 'dots';
-            
-            // Crear dots según cantidad de slides
-            for (let i = 0; i < this.slides.length; i++) {
-                const dot = document.createElement('button');
-                dot.className = i === 0 ? 'dot active' : 'dot';
-                dot.setAttribute('aria-label', `Ir al slide ${i+1}`);
-                dotsContainer.appendChild(dot);
-            }
-            
-            // Añadir elementos al DOM
-            sliderNav.appendChild(prevBtn);
-            sliderNav.appendChild(dotsContainer);
-            sliderNav.appendChild(nextBtn);
-            this.container.appendChild(sliderNav);
-            
-            // Actualizar referencias
-            this.prevBtn = prevBtn;
-            this.nextBtn = nextBtn;
-            this.dots = dotsContainer.querySelectorAll('.dot');
-            
-            // Configurar eventos
-            this.setupNavigation();
-        },
-        
-        // Importante: Manejar cambios de visibilidad de la página
         setupVisibilityChange: function() {
-            // Cuando la página se vuelve visible/invisible
             document.addEventListener('visibilitychange', () => {
                 if (document.hidden) {
-                    // La página está oculta, pausar autoplay
                     this.stopAutoplay();
                 } else {
-                    // La página está visible, reanudar autoplay
                     this.startAutoplay();
                 }
             });
             
-            // Asegurarse de reanudar el autoplay cuando el dispositivo se activa
             window.addEventListener('focus', () => {
                 this.startAutoplay();
             });
-            
-            // Para dispositivos móviles, reiniciar cuando hay interacción
-            this.container.addEventListener('touchstart', () => {
-                if (!this.interval) {
-                    this.startAutoplay();
-                }
-            }, {passive: true});
         }
     };
     

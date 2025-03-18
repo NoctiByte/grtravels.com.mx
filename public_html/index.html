@@ -63,50 +63,64 @@
     <!-- Hero Section con Video/Slider -->
     <section class="hero">
         <div class="hero-slider">
-            <div class="slide active" style="background-image: url('img/hero/vallarta.webp');">
+            <!-- Slide 1 -->
+            <div class="slide">
+                <!-- Capa de imagen que tendrá el efecto de zoom -->
+                <div class="slide-bg" style="background-image: url('img/hero/vallarta.webp');"></div>
+                
+                <!-- Capa de overlay con gradiente que mejora la legibilidad -->
+                <div class="slide-overlay"></div>
+                
+                <!-- Contenido del slide que no se verá afectado por el zoom -->
                 <div class="container">
                     <div class="hero-content">
-                        <h1 class="animate-up">Descubre Puerto Vallarta</h1>
-                        <p class="animate-up delay-200">Experimenta lo mejor de la Bahía de Banderas con nuestros servicios de transporte premium</p>
-                        <div class="hero-buttons animate-up delay-400">
+                        <h1 class="animate-fade">Descubre Puerto Vallarta</h1>
+                        <p class="animate-fade">Experimenta lo mejor de la Bahía de Banderas con nuestros servicios de transporte premium</p>
+                        <div class="hero-buttons animate-fade">
                             <a href="destinos.html" class="btn btn-primary">Explorar Destinos</a>
                             <a href="flota.html" class="btn btn-outline">Conocer Nuestra Flota</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="slide" style="background-image: url('img/hero/autobus.webp');">
+            
+            <!-- Slide 2 -->
+            <div class="slide">
+                <div class="slide-bg" style="background-image: url('img/hero/autobus.webp');"></div>
+                <div class="slide-overlay"></div>
                 <div class="container">
                     <div class="hero-content">
-                        <h1>Servicio de Clase Mundial</h1>
-                        <p>Vehículos de lujo, conductores profesionales y atención personalizada</p>
-                        <div class="hero-buttons">
+                        <h1 class="animate-fade">Servicio de Clase Mundial</h1>
+                        <p class="animate-fade">Vehículos de lujo, conductores profesionales y atención personalizada</p>
+                        <div class="hero-buttons animate-fade">
                             <a href="servicios.html" class="btn btn-primary">Nuestros Servicios</a>
                             <a href="reservas.html" class="btn btn-outline">Cotizar Ahora</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="slide" style="background-image: url('img/hero/vallarta3.webp');">
+            
+            <!-- Slide 3 -->
+            <div class="slide">
+                <div class="slide-bg" style="background-image: url('img/hero/vallarta3.webp');"></div>
+                <div class="slide-overlay"></div>
                 <div class="container">
                     <div class="hero-content">
-                        <h1>Tours Personalizados</h1>
-                        <p>Creamos experiencias únicas adaptadas a tus necesidades</p>
-                        <div class="hero-buttons">
+                        <h1 class="animate-fade">Tours Personalizados</h1>
+                        <p class="animate-fade">Creamos experiencias únicas adaptadas a tus necesidades</p>
+                        <div class="hero-buttons animate-fade">
                             <a href="reservas.html" class="btn btn-primary">Reservar Tour</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="slider-nav">
-            <button class="prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
-            <div class="dots">
-                <button class="dot active" aria-label="Slide 1"></button>
-                <button class="dot" aria-label="Slide 2"></button>
-                <button class="dot" aria-label="Slide 3"></button>
+            
+            <!-- Controles de navegación minimalistas pero efectivos -->
+            <div class="slider-nav">
+                <div class="dots">
+                    <!-- Se generan dinámicamente por JS -->
+                </div>
             </div>
-            <button class="next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
         </div>
     </section>
 

@@ -296,118 +296,192 @@ section {
     transition: var(--transition);
 }
 
-/* Hero Section */
+/* Hero Section - Ajustar altura para eliminar espacio azul */
 .hero {
-    padding-top: 80px;
     position: relative;
-    background-color: var(--gray-900);
+    height: 90vh; /* Mantener este valor */
+    min-height: 700px; /* Altura mínima para mantener el impacto */
+    max-height: 900px; /* Altura máxima para pantallas muy grandes */
+    padding-top: 80px; /* Para el header */
+    margin-bottom: 0; /* ¡Importante! Eliminar cualquier margen */
     overflow: hidden;
+    background-color: transparent; /* Cambiar de primary-dark a transparent */
 }
 
+/* Contenedor del slider */
 .hero-slider {
     position: relative;
-    height: 600px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin-bottom: 0; /* Asegurarse que no haya margen */
 }
 
+/* Estilo para cada slide */
 .slide {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
     opacity: 0;
-    transition: opacity 0.8s ease; /* Transición más suave */
+    z-index: 1;
     display: flex;
     align-items: center;
+    transition: opacity 1.2s ease;
+    overflow: hidden;
 }
 
-.slide::before {
-    content: '';
+/* Slide activo */
+.slide.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+/* Capa de imagen de fondo con efecto Ken Burns */
+.slide-bg {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.1) 100%);
-}
-
-.slide.active {
-    opacity: 1;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transform: scale(1.1); /* Escala inicial para el efecto de acercamiento */
+    transition: transform 9s ease; /* Transición lenta para efecto cinematográfico */
     z-index: 1;
 }
 
-.hero-content {
-    position: relative;
-    color: var(--white);
-    max-width: 600px;
+/* Efecto de acercamiento en slide activo */
+.slide.active .slide-bg {
+    transform: scale(1.0); /* Escala final ligeramente más pequeña */
+}
+
+/* Overlay para mejorar legibilidad del texto */
+.slide-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.6) 30%, rgba(0,0,0,0.3) 70%);
     z-index: 2;
 }
 
+/* Contenedor del contenido */
+.hero .container {
+    position: relative;
+    z-index: 3;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--space-lg) 0;
+}
+
+/* Contenido del hero mejorado */
+.hero-content {
+    max-width: 700px; /* Más ancho para mejorar la disposición */
+    color: var(--white);
+    padding: var(--space-md);
+    position: relative;
+    margin-bottom: 0; /* Ajustar este valor si es necesario */
+}
+
+/* Tipografía refinada */
 .hero-content h1 {
     font-family: var(--font-secondary);
-    font-size: 3.5rem;
-    margin-bottom: var(--space-md);
+    font-size: 4.2rem; /* Título más grande e impactante */
     font-weight: var(--font-weight-bold);
+    margin-bottom: var(--space-md);
+    line-height: 1.1;
+    letter-spacing: -0.5px; /* Espaciado negativo para un aspecto más premium */
+    text-shadow: 0 2px 20px rgba(0,0,0,0.5); /* Sombra más sofisticada */
 }
 
 .hero-content p {
-    font-size: 1.25rem;
-    margin-bottom: var(--space-lg);
+    font-size: 1.4rem; /* Texto descriptivo más grande */
+    margin-bottom: var(--space-xl);
     opacity: 0.9;
+    max-width: 90%;
+    line-height: 1.6;
+    text-shadow: 0 1px 10px rgba(0,0,0,0.5);
 }
 
+/* Botones con mejor diseño */
 .hero-buttons {
     display: flex;
     gap: var(--space-md);
+    flex-wrap: wrap;
 }
 
+.hero .btn {
+    padding: 15px 30px; /* Botones más grandes */
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); /* Transición más sofisticada */
+}
+
+/* Botón primario con efecto de brillo */
+.hero .btn-primary {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    border: none;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.hero .btn-primary:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+    background: linear-gradient(135deg, var(--primary) 20%, var(--primary-dark) 100%);
+}
+
+/* Botón outline mejorado */
+.hero .btn-outline {
+    background-color: rgba(255,255,255,0.1);
+    color: var(--white);
+    border: 2px solid rgba(255,255,255,0.9);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.hero .btn-outline:hover {
+    background-color: rgba(255,255,255,0.9);
+    color: var(--primary-dark);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+/* Navegación minimalista */
 .slider-nav {
     position: absolute;
-    bottom: 30px;
+    bottom: 40px;
     left: 0;
     right: 0;
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: var(--space-md);
     z-index: 10;
-}
-
-.prev, .next {
-    background: rgba(255, 255, 255, 0.3);
-    color: var(--white);
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.prev:hover, .next:hover {
-    background: var(--white);
-    color: var(--primary);
 }
 
 .dots {
     display: flex;
-    gap: 10px;
+    gap: 12px;
+    padding: 10px 20px;
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .dot {
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255,255,255,0.4);
     border: none;
     cursor: pointer;
-    transition: var(--transition);
+    transition: all 0.3s ease;
 }
 
 .dot.active {
@@ -553,7 +627,7 @@ section {
 .fleet-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--space-xl);
+    gap: var (--space-xl);
 }
 
 .fleet-item {
@@ -660,7 +734,7 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: var(--space-md);
+    gap: var (--space-md);
 }
 
 .client img {
@@ -989,4 +1063,13 @@ textarea:focus {
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
+}
+
+/* Asegurar que la sección de servicios se une perfectamente al hero */
+.services-section {
+    margin-top: 0; /* Eliminar cualquier margen superior */
+    padding-top: var(--space-xl); /* Usar padding en lugar de margen */
+    background-color: var(--white); /* Garantizar fondo blanco */
+    position: relative; /* Para asegurar que cubra cualquier gap */
+    z-index: 5; /* Mayor que el z-index del hero para asegurar superposición */
 }

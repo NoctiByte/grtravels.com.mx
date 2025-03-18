@@ -5,9 +5,11 @@
 @keyframes fadeIn {
     from {
         opacity: 0;
+        transform: translateY(30px);
     }
     to {
         opacity: 1;
+        transform: translateY(0);
     }
 }
 
@@ -465,4 +467,83 @@
 
 .fade-out {
     animation: messageFadeOut 0.5s forwards;
+}
+
+/* Hero Slider Animations */
+.slide.active .hero-content h1 {
+    animation: fadeIn 0.8s forwards;
+}
+
+.slide.active .hero-content p {
+    animation: fadeIn 0.8s 0.2s forwards;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+.slide.active .hero-content .hero-buttons {
+    animation: fadeIn 0.8s 0.4s forwards;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+@keyframes kenBurns {
+    from {
+        transform: scale(1.05);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.slide.active {
+    animation: kenBurns 10s ease forwards;
+}
+
+/* Animaciones para el hero slider */
+.slide .animate-fade {
+    opacity: 0;
+}
+
+.slide.active .animate-fade {
+    animation: fadeIn 0.8s forwards;
+}
+
+.slide.active h1.animate-fade {
+    animation-delay: 0.2s;
+}
+
+.slide.active p.animate-fade {
+    animation-delay: 0.5s;
+}
+
+.slide.active .hero-buttons.animate-fade {
+    animation-delay: 0.8s;
+}
+
+/* Suave revelación para overlay de slides */
+.slide .slide-overlay {
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.slide.active .slide-overlay {
+    opacity: 1;
+}
+
+/* Efecto de entrada para dots */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slider-nav {
+    animation: fadeInUp 1s forwards;
+    animation-delay: 1s;
+    opacity: 0;
 }

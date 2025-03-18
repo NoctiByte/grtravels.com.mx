@@ -5,9 +5,23 @@
     .container {
         max-width: 960px;
     }
-    
+    .header-logo img {
+        max-width: 180px;
+    }
+
+    .main-nav {
+        gap: 1.5rem;
+    }
+
+    .main-nav a {
+        font-size: 0.95rem;
+    }
     .hero-content h1 {
-        font-size: 3rem;
+        font-size: 3.8rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.3rem;
     }
     
     .footer-grid {
@@ -26,11 +40,17 @@
     }
     
     .hero-content h1 {
-        font-size: 2.5rem;
+        font-size: 3.2rem;
     }
     
     .hero-content p {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
+        margin-bottom: var(--space-lg);
+    }
+    
+    .hero .btn {
+        padding: 12px 25px;
+        font-size: 1rem;
     }
     
     .section-header h2 {
@@ -153,6 +173,7 @@
         text-align: center;
         max-width: 100%;
         padding: 0 var(--space-md);
+        margin-bottom: var(--space-lg);
     }
     
     .hero-buttons {
@@ -160,7 +181,13 @@
     }
     
     .hero-content h1 {
-        font-size: 2.2rem;
+        font-size: 2.8rem;
+        margin-bottom: var(--space-sm);
+    }
+    
+    .hero-content p {
+        font-size: 1.1rem;
+        margin-bottom: var(--space-md);
     }
     
     .services-grid,
@@ -199,8 +226,54 @@
 
 /* Dispositivos móviles pequeños */
 @media (max-width: 576px) {
+    .hero {
+        height: 70vh; /* Reducido de 80vh a 70vh */
+        min-height: 500px; /* Valor razonable */
+    }
+    
+    .hero-content h1 {
+        font-size: 2.4rem;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+        margin-bottom: var(--space-md);
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: var(--space-sm);
+        width: 100%;
+    }
+    
+    .hero .btn {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .slider-nav {
+        bottom: 20px;
+    }
+    
+    .dots {
+        padding: 8px 15px;
+    }
+    
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+}
+    
     .hero-slider {
-        height: 450px;
+        height: 100%; /* Cambiado de valor fijo a porcentaje */
+    }
+    
+    .hero-content {
+        text-align: center;
+        max-width: 100%;
+        padding: 0 var(--space-md);
+        margin-bottom: var(--space-lg);
     }
     
     .hero-content h1 {
@@ -223,5 +296,21 @@
     .client {
         flex-direction: column;
         text-align: center;
+    }
+
+@media (max-height: 700px) and (min-width: 768px) {
+    .hero {
+        height: 100vh;
+    }
+    
+    .hero-content {
+        margin-top: var(--space-lg);
+    }
+}
+
+@media (max-width: 991px) {
+    .hero {
+        height: 80vh;
+        min-height: 600px;
     }
 }
