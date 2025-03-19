@@ -1,6 +1,8 @@
 /* Archivo: /home/xyz/var/www/grtravels.online/public_html/css/style.css */
 
-/* Variables CSS globales */
+/*-------------------------------------------
+  VARIABLES Y CONFIGURACIÓN GLOBAL
+-------------------------------------------*/
 :root {
     /* Colores principales */
     --primary: #0056b3;
@@ -55,7 +57,9 @@
     --transition-slow: all 0.5s ease;
 }
 
-/* Reseteos y base */
+/*-------------------------------------------
+  RESET Y ESTILOS BASE
+-------------------------------------------*/
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -95,7 +99,9 @@ ul, ol {
     list-style: none;
 }
 
-/* Contenedores */
+/*-------------------------------------------
+  LAYOUT Y CONTENEDORES
+-------------------------------------------*/
 .container {
     width: 100%;
     max-width: 1200px;
@@ -111,7 +117,6 @@ section {
     text-align: center;
 }
 
-/* Cabeceras de sección */
 .section-header {
     text-align: center;
     margin-bottom: var(--space-xl);
@@ -141,7 +146,9 @@ section {
     margin: var(--space-md) auto 0;
 }
 
-/* Botones */
+/*-------------------------------------------
+  COMPONENTES DE UI - BOTONES
+-------------------------------------------*/
 .btn {
     display: inline-block;
     font-weight: var(--font-weight-medium);
@@ -193,7 +200,9 @@ section {
     width: 100%;
 }
 
-/* Header y Navegación */
+/*-------------------------------------------
+  HEADER Y NAVEGACIÓN
+-------------------------------------------*/
 .header {
     position: fixed;
     top: 0;
@@ -276,6 +285,7 @@ section {
     color: var(--primary);
 }
 
+/* Botón de toggle para móvil */
 .mobile-toggle {
     display: none;
     background: none;
@@ -296,16 +306,19 @@ section {
     transition: var(--transition);
 }
 
-/* Hero Section - Ajustar altura para eliminar espacio azul */
+/*-------------------------------------------
+  HERO SECTION Y SLIDER
+-------------------------------------------*/
+/* Hero Section optimizado */
 .hero {
     position: relative;
-    height: 90vh; /* Mantener este valor */
-    min-height: 700px; /* Altura mínima para mantener el impacto */
-    max-height: 900px; /* Altura máxima para pantallas muy grandes */
-    padding-top: 80px; /* Para el header */
-    margin-bottom: 0; /* ¡Importante! Eliminar cualquier margen */
+    height: 85vh; 
+    min-height: 650px;
+    max-height: 800px;
+    padding-top: 80px;
+    margin-bottom: 0;
     overflow: hidden;
-    background-color: transparent; /* Cambiar de primary-dark a transparent */
+    background-color: transparent;
 }
 
 /* Contenedor del slider */
@@ -314,7 +327,7 @@ section {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    margin-bottom: 0; /* Asegurarse que no haya margen */
+    margin-bottom: 0;
 }
 
 /* Estilo para cada slide */
@@ -348,24 +361,24 @@ section {
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
-    transform: scale(1.1); /* Escala inicial para el efecto de acercamiento */
-    transition: transform 9s ease; /* Transición lenta para efecto cinematográfico */
+    transform: scale(1.1);
+    transition: transform 9s ease;
     z-index: 1;
 }
 
 /* Efecto de acercamiento en slide activo */
 .slide.active .slide-bg {
-    transform: scale(1.0); /* Escala final ligeramente más pequeña */
+    transform: scale(1.0);
 }
 
-/* Overlay para mejorar legibilidad del texto */
+/* Overlay para mejorar legibilidad */
 .slide-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.6) 30%, rgba(0,0,0,0.3) 70%);
+    background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.7) 100%);
     z-index: 2;
 }
 
@@ -377,53 +390,60 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     padding: var(--space-lg) 0;
 }
 
-/* Contenido del hero mejorado */
+/* Contenido del hero */
 .hero-content {
-    max-width: 700px; /* Más ancho para mejorar la disposición */
+    max-width: 800px;
     color: var(--white);
     padding: var(--space-md);
     position: relative;
-    margin-bottom: 0; /* Ajustar este valor si es necesario */
+    margin-bottom: var(--space-xl);
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* Tipografía refinada */
 .hero-content h1 {
     font-family: var(--font-secondary);
-    font-size: 4.2rem; /* Título más grande e impactante */
+    font-size: 4.2rem;
     font-weight: var(--font-weight-bold);
     margin-bottom: var(--space-md);
     line-height: 1.1;
-    letter-spacing: -0.5px; /* Espaciado negativo para un aspecto más premium */
-    text-shadow: 0 2px 20px rgba(0,0,0,0.5); /* Sombra más sofisticada */
+    letter-spacing: -0.5px;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+    text-align: center;
 }
 
 .hero-content p {
-    font-size: 1.4rem; /* Texto descriptivo más grande */
+    font-size: 1.4rem;
     margin-bottom: var(--space-xl);
     opacity: 0.9;
     max-width: 90%;
     line-height: 1.6;
     text-shadow: 0 1px 10px rgba(0,0,0,0.5);
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* Botones con mejor diseño */
+/* Botones del hero */
 .hero-buttons {
     display: flex;
     gap: var(--space-md);
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .hero .btn {
-    padding: 15px 30px; /* Botones más grandes */
+    padding: 15px 30px;
     font-size: 1.1rem;
     letter-spacing: 0.5px;
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); /* Transición más sofisticada */
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-/* Botón primario con efecto de brillo */
 .hero .btn-primary {
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
     border: none;
@@ -436,7 +456,6 @@ section {
     background: linear-gradient(135deg, var(--primary) 20%, var(--primary-dark) 100%);
 }
 
-/* Botón outline mejorado */
 .hero .btn-outline {
     background-color: rgba(255,255,255,0.1);
     color: var(--white);
@@ -453,7 +472,7 @@ section {
     box-shadow: 0 15px 30px rgba(0,0,0,0.2);
 }
 
-/* Navegación minimalista */
+/* Navegación del slider */
 .slider-nav {
     position: absolute;
     bottom: 40px;
@@ -489,7 +508,17 @@ section {
     transform: scale(1.3);
 }
 
-/* Servicios */
+/*-------------------------------------------
+  SECCIÓN DE SERVICIOS
+-------------------------------------------*/
+.services-section {
+    margin-top: 0;
+    padding-top: var(--space-xl);
+    background-color: var(--white);
+    position: relative;
+    z-index: 5;
+}
+
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -560,7 +589,9 @@ section {
     transform: translateX(5px);
 }
 
-/* Destinos */
+/*-------------------------------------------
+  SECCIÓN DE DESTINOS
+-------------------------------------------*/
 .destinations {
     background-color: var(--gray-100);
 }
@@ -623,11 +654,13 @@ section {
     font-size: 0.9rem;
 }
 
-/* Flota */
+/*-------------------------------------------
+  SECCIÓN DE FLOTA
+-------------------------------------------*/
 .fleet-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var (--space-xl);
+    gap: var(--space-xl);
 }
 
 .fleet-item {
@@ -673,7 +706,9 @@ section {
     color: var(--primary);
 }
 
-/* Testimonios */
+/*-------------------------------------------
+  SECCIÓN DE TESTIMONIOS
+-------------------------------------------*/
 .testimonials {
     background-color: var(--gray-100);
 }
@@ -734,7 +769,7 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: var (--space-md);
+    gap: var(--space-md);
 }
 
 .client img {
@@ -754,8 +789,6 @@ section {
     color: var(--text-light);
     font-size: 0.9rem;
 }
-
-/* Añadir estos estilos para los controles de testimonios */
 
 /* Navegación de testimonios */
 .testimonial-nav {
@@ -807,7 +840,9 @@ section {
     transform: scale(1.3);
 }
 
-/* Formulario de Contacto Rápido */
+/*-------------------------------------------
+  SECCIÓN DE CONTACTO RÁPIDO
+-------------------------------------------*/
 .quick-contact {
     background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
     color: var(--white);
@@ -831,17 +866,18 @@ section {
     font-size: 1.1rem;
     opacity: 0.9;
 }
-/* Corregir la visibilidad de los iconos en la sección de contacto rápido */
+
+/* Iconos de contacto */
 .contact-list i {
     font-size: 1.5rem;
     width: 50px;
     height: 50px;
-    background-color: var(--white); /* Fondo en color blanco */
+    background-color: var(--white);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--secondary); /* Color naranja para mejor visibilidad */
+    color: var(--secondary);
     transition: var(--transition);
 }
 
@@ -870,6 +906,7 @@ section {
     transform: scale(1.1);
 }
 
+/* Formulario de contacto */
 .contact-form {
     background: var(--white);
     border-radius: var(--border-radius);
@@ -915,7 +952,9 @@ textarea:focus {
     box-shadow: 0 0 0 2px rgba(0, 86, 179, 0.2);
 }
 
-/* Footer */
+/*-------------------------------------------
+  FOOTER
+-------------------------------------------*/
 .footer {
     background-color: var(--dark);
     color: var(--gray-300);
@@ -1037,7 +1076,9 @@ textarea:focus {
     color: var(--white);
 }
 
-/* Utilities */
+/*-------------------------------------------
+  CLASES UTILITARIAS
+-------------------------------------------*/
 .animate-up {
     opacity: 0;
     transform: translateY(30px);
@@ -1052,7 +1093,7 @@ textarea:focus {
     animation-delay: 0.4s;
 }
 
-/* Animaciones base */
+/* Animaciones base (pueden moverse a animations.css) */
 @keyframes fadeUp {
     to {
         opacity: 1;
@@ -1061,15 +1102,12 @@ textarea:focus {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-/* Asegurar que la sección de servicios se une perfectamente al hero */
-.services-section {
-    margin-top: 0; /* Eliminar cualquier margen superior */
-    padding-top: var(--space-xl); /* Usar padding en lugar de margen */
-    background-color: var(--white); /* Garantizar fondo blanco */
-    position: relative; /* Para asegurar que cubra cualquier gap */
-    z-index: 5; /* Mayor que el z-index del hero para asegurar superposición */
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

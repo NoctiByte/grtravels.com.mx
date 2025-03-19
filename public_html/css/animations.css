@@ -1,7 +1,10 @@
 /* Archivo: /home/xyz/var/www/grtravels.online/public_html/css/animations.css */
 /* Animaciones para el sitio web GR Travels */
 
-/* Animaciones de entrada y salida */
+/*-------------------------------------------
+  ANIMACIONES BÁSICAS DE ENTRADA Y SALIDA
+-------------------------------------------*/
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -77,15 +80,88 @@
     }
 }
 
-/* Animaciones para servicios */
-@keyframes rotateIcon {
+/*-------------------------------------------
+  ANIMACIONES PARA SLIDERS
+-------------------------------------------*/
+
+@keyframes slideRight {
     from {
-        transform: rotateY(0deg);
+        transform: translateX(-100%);
+        opacity: 0;
     }
     to {
-        transform: rotateY(180deg);
+        transform: translateX(0);
+        opacity: 1;
     }
 }
+
+@keyframes slideLeft {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes testimonialSlide {
+    0% {
+        opacity: 0;
+        transform: scale(0.9) translateX(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateX(0);
+    }
+}
+
+@keyframes kenBurns {
+    from {
+        transform: scale(1.05);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/*-------------------------------------------
+  ANIMACIONES PARA ELEMENTOS INTERACTIVOS
+-------------------------------------------*/
 
 @keyframes pulse {
     0% {
@@ -114,88 +190,15 @@
     }
 }
 
-/* Animaciones para sliders */
-@keyframes slideRight {
+@keyframes rotateIcon {
     from {
-        transform: translateX(-100%);
-        opacity: 0;
+        transform: rotateY(0deg);
     }
     to {
-        transform: translateX(0);
-        opacity: 1;
+        transform: rotateY(180deg);
     }
 }
 
-@keyframes slideLeft {
-    from {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-/* Animación para números de contador */
-@keyframes countUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Animación para el botón flotante */
-@keyframes floatingButton {
-    0% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-    100% {
-        transform: translateY(0);
-    }
-}
-
-/* Animación para mensajes de formulario */
-@keyframes slideDown {
-    from {
-        transform: translateY(-20px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-@keyframes slideUp {
-    from {
-        transform: translateY(20px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-/* Animación para carga */
-@keyframes spinner {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-/* Animación para botones */
 @keyframes btnPulse {
     0% {
         box-shadow: 0 0 0 0 rgba(0, 86, 179, 0.4);
@@ -208,7 +211,51 @@
     }
 }
 
-/* Animación para el header al hacer scroll */
+@keyframes floatingButton {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes countUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes borderAnimation {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+/*-------------------------------------------
+  ANIMACIONES PARA UI/UX
+-------------------------------------------*/
+
+@keyframes spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 @keyframes shrinkHeader {
     from {
         padding: 1rem 0;
@@ -219,29 +266,6 @@
     }
 }
 
-/* Animación para elementos de navegación */
-@keyframes borderAnimation {
-    0% {
-        width: 0;
-    }
-    100% {
-        width: 100%;
-    }
-}
-
-/* Animación para testimonios */
-@keyframes testimonialSlide {
-    0% {
-        opacity: 0;
-        transform: scale(0.9) translateX(30px);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1) translateX(0);
-    }
-}
-
-/* Animación para aparición de mensajes */
 @keyframes messageAppear {
     0% {
         max-height: 0;
@@ -268,34 +292,10 @@
     }
 }
 
-/* Animaciones para hover */
-.hover-zoom {
-    transition: all 0.3s ease;
-}
+/*-------------------------------------------
+  CLASES DE ANIMACIÓN REUTILIZABLES
+-------------------------------------------*/
 
-.hover-zoom:hover {
-    transform: scale(1.05);
-    z-index: 1;
-}
-
-.hover-lift {
-    transition: all 0.3s ease;
-}
-
-.hover-lift:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-}
-
-.hover-rotate img {
-    transition: all 0.5s ease;
-}
-
-.hover-rotate:hover img {
-    transform: rotate(3deg) scale(1.05);
-}
-
-/* Clases de animación aplicables */
 .animate-fade-in {
     animation: fadeIn 0.8s forwards;
 }
@@ -328,48 +328,55 @@
     animation: bounce 2s infinite;
 }
 
-/* Retrasos de animación */
-.delay-100 {
-    animation-delay: 100ms;
+/*-------------------------------------------
+  RETRASOS DE ANIMACIÓN
+-------------------------------------------*/
+
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
+.delay-700 { animation-delay: 700ms; }
+.delay-800 { animation-delay: 800ms; }
+.delay-900 { animation-delay: 900ms; }
+.delay-1000 { animation-delay: 1000ms; }
+
+/*-------------------------------------------
+  EFECTOS DE HOVER
+-------------------------------------------*/
+
+.hover-zoom {
+    transition: all 0.3s ease;
 }
 
-.delay-200 {
-    animation-delay: 200ms;
+.hover-zoom:hover {
+    transform: scale(1.05);
+    z-index: 1;
 }
 
-.delay-300 {
-    animation-delay: 300ms;
+.hover-lift {
+    transition: all 0.3s ease;
 }
 
-.delay-400 {
-    animation-delay: 400ms;
+.hover-lift:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
-.delay-500 {
-    animation-delay: 500ms;
+.hover-rotate img {
+    transition: all 0.5s ease;
 }
 
-.delay-600 {
-    animation-delay: 600ms;
+.hover-rotate:hover img {
+    transform: rotate(3deg) scale(1.05);
 }
 
-.delay-700 {
-    animation-delay: 700ms;
-}
+/*-------------------------------------------
+  ANIMACIONES DE CARGA DE PÁGINA
+-------------------------------------------*/
 
-.delay-800 {
-    animation-delay: 800ms;
-}
-
-.delay-900 {
-    animation-delay: 900ms;
-}
-
-.delay-1000 {
-    animation-delay: 1000ms;
-}
-
-/* Animaciones para la carga inicial de la página */
 .page-transition {
     position: fixed;
     top: 0;
@@ -397,7 +404,11 @@
     animation: spinner 1s linear infinite;
 }
 
-/* Animaciones para componentes específicos */
+/*-------------------------------------------
+  ANIMACIONES PARA COMPONENTES ESPECÍFICOS
+-------------------------------------------*/
+
+/* Tarjetas de destino */
 .destination-card .btn {
     transform: translateY(20px);
     opacity: 0;
@@ -409,42 +420,25 @@
     opacity: 1;
 }
 
-/* Efecto de aparición secuencial para elementos en lista */
+/* Animación secuencial de listas */
 .sequence-animation > * {
     opacity: 0;
     transform: translateY(20px);
 }
 
-.sequence-animation > *:nth-child(1) {
-    animation: fadeUp 0.5s forwards 0.1s;
-}
+.sequence-animation > *:nth-child(1) { animation: fadeUp 0.5s forwards 0.1s; }
+.sequence-animation > *:nth-child(2) { animation: fadeUp 0.5s forwards 0.2s; }
+.sequence-animation > *:nth-child(3) { animation: fadeUp 0.5s forwards 0.3s; }
+.sequence-animation > *:nth-child(4) { animation: fadeUp 0.5s forwards 0.4s; }
+.sequence-animation > *:nth-child(5) { animation: fadeUp 0.5s forwards 0.5s; }
+.sequence-animation > *:nth-child(6) { animation: fadeUp 0.5s forwards 0.6s; }
 
-.sequence-animation > *:nth-child(2) {
-    animation: fadeUp 0.5s forwards 0.2s;
-}
-
-.sequence-animation > *:nth-child(3) {
-    animation: fadeUp 0.5s forwards 0.3s;
-}
-
-.sequence-animation > *:nth-child(4) {
-    animation: fadeUp 0.5s forwards 0.4s;
-}
-
-.sequence-animation > *:nth-child(5) {
-    animation: fadeUp 0.5s forwards 0.5s;
-}
-
-.sequence-animation > *:nth-child(6) {
-    animation: fadeUp 0.5s forwards 0.6s;
-}
-
-/* Animación para botón de llamada a la acción principal */
+/* Botón con pulso */
 .btn-primary.with-pulse {
     animation: btnPulse 2s infinite;
 }
 
-/* Animaciones para feedback de formularios */
+/* Mensajes de formulario */
 .success-message,
 .error-message {
     padding: 1rem;
@@ -469,37 +463,11 @@
     animation: messageFadeOut 0.5s forwards;
 }
 
-/* Hero Slider Animations */
-.slide.active .hero-content h1 {
-    animation: fadeIn 0.8s forwards;
-}
+/*-------------------------------------------
+  HERO SLIDER ANIMATIONS
+-------------------------------------------*/
 
-.slide.active .hero-content p {
-    animation: fadeIn 0.8s 0.2s forwards;
-    opacity: 0;
-    animation-fill-mode: forwards;
-}
-
-.slide.active .hero-content .hero-buttons {
-    animation: fadeIn 0.8s 0.4s forwards;
-    opacity: 0;
-    animation-fill-mode: forwards;
-}
-
-@keyframes kenBurns {
-    from {
-        transform: scale(1.05);
-    }
-    to {
-        transform: scale(1);
-    }
-}
-
-.slide.active {
-    animation: kenBurns 10s ease forwards;
-}
-
-/* Animaciones para el hero slider */
+/* Animaciones del contenido del slide */
 .slide .animate-fade {
     opacity: 0;
 }
@@ -516,11 +484,22 @@
     animation-delay: 0.5s;
 }
 
+/* Si decidimos volver a añadir botones */
 .slide.active .hero-buttons.animate-fade {
     animation-delay: 0.8s;
 }
 
-/* Suave revelación para overlay de slides */
+/* Efecto de zoom en el slide activo */
+.slide-bg {
+    transform: scale(1.1);
+    transition: transform 9s ease;
+}
+
+.slide.active .slide-bg {
+    transform: scale(1.0);
+}
+
+/* Overlay del slide */
 .slide .slide-overlay {
     opacity: 0;
     transition: opacity 1s ease;
@@ -530,20 +509,18 @@
     opacity: 1;
 }
 
-/* Efecto de entrada para dots */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
+/* Animación para los indicadores */
 .slider-nav {
     animation: fadeInUp 1s forwards;
     animation-delay: 1s;
     opacity: 0;
+}
+
+/* Dots de navegación */
+.dot {
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    transform: scale(1.3);
 }

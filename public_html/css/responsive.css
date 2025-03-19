@@ -5,6 +5,7 @@
     .container {
         max-width: 960px;
     }
+    
     .header-logo img {
         max-width: 180px;
     }
@@ -16,6 +17,7 @@
     .main-nav a {
         font-size: 0.95rem;
     }
+    
     .hero-content h1 {
         font-size: 3.8rem;
     }
@@ -37,6 +39,11 @@
     
     .header-cta .btn {
         padding: 0.5rem 1rem;
+    }
+    
+    .hero {
+        height: 80vh;
+        min-height: 600px;
     }
     
     .hero-content h1 {
@@ -165,8 +172,13 @@
         visibility: visible;
     }
     
+    .hero {
+        height: 75vh;
+        min-height: 550px;
+    }
+    
     .hero-slider {
-        height: 500px;
+        height: 100%;
     }
     
     .hero-content {
@@ -181,13 +193,14 @@
     }
     
     .hero-content h1 {
-        font-size: 2.8rem;
+        font-size: 3rem;
         margin-bottom: var(--space-sm);
     }
     
     .hero-content p {
         font-size: 1.1rem;
         margin-bottom: var(--space-md);
+        max-width: 100%;
     }
     
     .services-grid,
@@ -227,8 +240,12 @@
 /* Dispositivos móviles pequeños */
 @media (max-width: 576px) {
     .hero {
-        height: 70vh; /* Reducido de 80vh a 70vh */
-        min-height: 500px; /* Valor razonable */
+        height: 70vh;
+        min-height: 500px;
+    }
+    
+    .hero-slider {
+        height: 100%;
     }
     
     .hero-content h1 {
@@ -240,13 +257,14 @@
         margin-bottom: var(--space-md);
     }
     
+    /* Botones del hero */
     .hero-buttons {
+        /* display: none; -- Comentado para no ocultar los botones si se necesitan */
         flex-direction: column;
         gap: var(--space-sm);
-        width: 100%;
     }
     
-    .hero .btn {
+    .hero-buttons .btn {
         width: 100%;
         text-align: center;
     }
@@ -263,31 +281,6 @@
         width: 10px;
         height: 10px;
     }
-}
-    
-    .hero-slider {
-        height: 100%; /* Cambiado de valor fijo a porcentaje */
-    }
-    
-    .hero-content {
-        text-align: center;
-        max-width: 100%;
-        padding: 0 var(--space-md);
-        margin-bottom: var(--space-lg);
-    }
-    
-    .hero-content h1 {
-        font-size: 2rem;
-    }
-    
-    .hero-buttons {
-        flex-direction: column;
-        gap: var(--space-sm);
-    }
-    
-    .hero-buttons .btn {
-        width: 100%;
-    }
     
     .form-row {
         grid-template-columns: 1fr;
@@ -297,20 +290,16 @@
         flex-direction: column;
         text-align: center;
     }
+}
 
+/* Para pantallas bajas pero anchas */
 @media (max-height: 700px) and (min-width: 768px) {
     .hero {
         height: 100vh;
+        min-height: 450px;
     }
     
     .hero-content {
-        margin-top: var(--space-lg);
-    }
-}
-
-@media (max-width: 991px) {
-    .hero {
-        height: 80vh;
-        min-height: 600px;
+        margin-top: var(--space-md);
     }
 }
