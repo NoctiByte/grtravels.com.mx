@@ -525,61 +525,59 @@ section {
     gap: var(--space-lg);
 }
 
-.service-card {
-    background: var(--white);
-    border-radius: var(--border-radius);
-    padding: var(--space-lg);
-    box-shadow: var(--box-shadow);
-    transition: var(--transition);
-    text-align: center;
-}
-
-.service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--box-shadow-lg);
-}
-
-.service-icon {
+.service-card .service-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 80px;
     height: 80px;
-    margin: 0 auto var(--space-md);
-    background-color: var(--primary-light);
-    color: var(--white);
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    transition: var(--transition);
+    background-color: rgba(var(--primary-rgb), 0.1);
+    margin: 0 auto 20px auto;
+    font-size: 2.5rem;
+    color: var(--primary);
+    transition: all 0.5s ease;
 }
 
-.service-icon i {
+.service-card .service-icon i {
     color: var(--primary);
-    font-size: 1rem;
+    font-size: inherit;
+    transition: all 0.5s ease;
 }
 
 .service-card:hover .service-icon {
     background-color: var(--primary);
+    color: var(--white);
     transform: rotateY(180deg);
+}
+
+.service-card:hover .service-icon i {
+    color: var(--white);
 }
 
 .service-card h3 {
     margin-bottom: var(--space-sm);
     font-weight: var(--font-weight-medium);
+    text-align: center;
 }
 
 .service-card p {
     color: var(--text-light);
     margin-bottom: var(--space-md);
+    text-align: center;
 }
 
 .link-arrow {
     color: var(--primary);
     font-weight: var(--font-weight-medium);
-    display: inline-flex;
+    display: flex;
     align-items: center;
+    justify-content: center;
     gap: 5px;
     transition: var(--transition);
+    text-align: center;
+    margin: 0 auto;
+    width: fit-content;
 }
 
 .link-arrow i {
@@ -871,11 +869,20 @@ section {
     display: block;
 }
 
-.testimonial-service {
+.testimonial-service .service-icon {
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: flex-end;
-    margin-top: var(--space-md);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba(0, 86, 179, 0.1);
+    margin-left: 8px;
+}
+
+.testimonial-service .service-icon i {
+    color: var(--primary);
+    font-size: 1rem;
 }
 
 .service-tag {
@@ -886,17 +893,6 @@ section {
     font-size: 0.85rem;
     font-weight: 500;
     margin-right: 8px;
-}
-
-.service-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background-color: rgba(0, 86, 179, 0.1); /* Usando valores directos en lugar de var(--primary-rgb) */
-    margin-left: 8px;
 }
 
 /* Controles de navegación */
