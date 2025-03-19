@@ -1,20 +1,22 @@
 /**
  * GR Travels - Controlador de sliders
  * Versión optimizada con manejo de errores y rendimiento mejorado
+ * 
+ * NOTA: Este archivo ahora solo maneja el Hero Slider principal.
+ * La funcionalidad de testimonios se gestiona exclusivamente en testimonials.js
  */
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Inicializar sliders con manejo de errores
+    // Inicializar SOLO el Hero Slider con manejo de errores
     try {
         console.log('Inicializando Hero Slider...');
         initHeroSlider();
         
-        console.log('Inicializando Slider de Testimonios...');
-        initTestimonialsSlider();
+        // La inicialización de testimonios ahora se maneja en testimonials.js
+        // para evitar conflictos y duplicidad de código
         
-        // Otras inicializaciones pueden ir aquí
     } catch (error) {
-        console.error('Error al inicializar sliders:', error);
+        console.error('Error al inicializar Hero Slider:', error);
     }
 });
 
@@ -257,167 +259,4 @@ function initHeroSlider() {
     
     // Inicializar el slider
     heroSlider.init();
-}
-
-/**
- * Inicializa el slider de testimonios
- */
-function initTestimonialsSlider() {
-    const testimonialItems = document.querySelectorAll('.testimonial-item');
-    const testimonialsContainer = document.querySelector('.testimonials-slider');
-    
-    // Verificar que existen los elementos necesarios
-    if (!testimonialsContainer) {
-        console.warn('Testimonials Slider: No se encontró el contenedor');
-        return;
-    }
-    
-    if (testimonialItems.length <= 0) {
-        console.warn('Testimonials Slider: No se encontraron items de testimonio');
-        return;
-    }
-    
-    // Si solo hay un testimonio, simplemente mostrar sin navegación
-    if (testimonialItems.length === 1) {
-        testimonialItems[0].classList.add('active');
-        return;
-    }
-    
-    // Muestra el primer testimonio
-    testimonialItems[0].classList.add('active');
-    
-    let currentIndex = 0;
-    let interval;
-    let isAnimating = false;
-    
-    // Crear controles de navegación
-    const navigation = document.createElement('div');
-    navigation.className = 'testimonial-nav';
-    
-    const prevBtn = document.createElement('button');
-    prevBtn.className = 'testimonial-prev';
-    prevBtn.setAttribute('aria-label', 'Testimonio anterior');
-    prevBtn.innerHTML = '<i class="fas fa-chevron-left"></i>';
-    
-    const nextBtn = document.createElement('button');
-    nextBtn.className = 'testimonial-next';
-    nextBtn.setAttribute('aria-label', 'Testimonio siguiente');
-    nextBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
-    
-    const indicators = document.createElement('div');
-    indicators.className = 'testimonial-indicators';
-    
-    testimonialItems.forEach((_, index) => {
-        const dot = document.createElement('button');
-        dot.className = index === 0 ? 'indicator active' : 'indicator';
-        dot.setAttribute('aria-label', `Ver testimonio ${index + 1}`);
-        indicators.appendChild(dot);
-    });
-    
-    navigation.appendChild(prevBtn);
-    navigation.appendChild(indicators);
-    navigation.appendChild(nextBtn);
-    
-    testimonialsContainer.appendChild(navigation);
-    
-    // Función para cambiar testimonios con verificación de índice
-    function showTestimonial(index) {
-        // Validaciones
-        if (isAnimating || index < 0 || index >= testimonialItems.length || index === currentIndex) return;
-        isAnimating = true;
-        
-        // Ocultar testimonio actual
-        testimonialItems[currentIndex].classList.remove('active');
-        const currentIndicator = document.querySelectorAll('.testimonial-indicators .indicator')[currentIndex];
-        if (currentIndicator) currentIndicator.classList.remove('active');
-        
-        // Actualizar índice
-        currentIndex = index;
-        
-        // Mostrar nuevo testimonio
-        testimonialItems[currentIndex].classList.add('active');
-        const newIndicator = document.querySelectorAll('.testimonial-indicators .indicator')[currentIndex];
-        if (newIndicator) newIndicator.classList.add('active');
-        
-        // Permitir nueva animación después de un tiempo
-        setTimeout(() => {
-            isAnimating = false;
-        }, 800);
-    }
-    
-    // Navegación con botones
-    prevBtn.addEventListener('click', () => {
-        const prevIndex = (currentIndex - 1 + testimonialItems.length) % testimonialItems.length;
-        showTestimonial(prevIndex);
-        resetInterval();
-    });
-    
-    nextBtn.addEventListener('click', () => {
-        const nextIndex = (currentIndex + 1) % testimonialItems.length;
-        showTestimonial(nextIndex);
-        resetInterval();
-    });
-    
-    // Navegación con indicadores
-    document.querySelectorAll('.testimonial-indicators .indicator').forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            showTestimonial(index);
-            resetInterval();
-        });
-    });
-    
-    // Navegación con teclado (accesibilidad)
-    testimonialsContainer.setAttribute('tabindex', '0');
-    testimonialsContainer.addEventListener('keydown', (e) => {
-        // Solo responder si el testimonio slider está en focus
-        if (document.activeElement !== testimonialsContainer) return;
-        
-        if (e.key === 'ArrowRight' || e.key === 'Right') {
-            const nextIndex = (currentIndex + 1) % testimonialItems.length;
-            showTestimonial(nextIndex);
-            resetInterval();
-        } else if (e.key === 'ArrowLeft' || e.key === 'Left') {
-            const prevIndex = (currentIndex - 1 + testimonialItems.length) % testimonialItems.length;
-            showTestimonial(prevIndex);
-            resetInterval();
-        }
-    });
-    
-    // Rotación automática
-    function startInterval() {
-        interval = setInterval(() => {
-            if (!document.hidden && !isAnimating) {
-                const nextIndex = (currentIndex + 1) % testimonialItems.length;
-                showTestimonial(nextIndex);
-            }
-        }, 6000); // Cambiar cada 6 segundos
-    }
-    
-    function resetInterval() {
-        clearInterval(interval);
-        startInterval();
-    }
-    
-    // Iniciar rotación automática
-    startInterval();
-    
-    // Pausar al interactuar
-    testimonialsContainer.addEventListener('mouseenter', () => {
-        clearInterval(interval);
-    });
-    
-    testimonialsContainer.addEventListener('mouseleave', () => {
-        startInterval();
-    });
-    
-    // Manejar visibilidad de página
-    document.addEventListener('visibilitychange', () => {
-        if (document.hidden) {
-            clearInterval(interval);
-        } else {
-            startInterval();
-        }
-    });
-    
-    console.log(`Testimonials Slider inicializado con ${testimonialItems.length} testimonios`);
 }
