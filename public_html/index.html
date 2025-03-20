@@ -487,33 +487,49 @@
                     <p>Contáctanos para planificar tu próximo viaje o evento en Puerto Vallarta.</p>
                     <ul class="contact-list">
                         <li>
-                            <i class="fab fa-whatsapp"></i>
-                            <div>
-                                <h4>WhatsApp</h4>
-                                <a href="https://wa.me/523223563191">322 356 3191</a>
-                            </div>
+                            <a href="https://wa.me/523223563191" class="contact-item-link">
+                                <div class="contact-icon">
+                                    <i class="fab fa-whatsapp"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>WhatsApp</h4>
+                                    <span>322 356 3191</span>
+                                </div>
+                            </a>
                         </li>
                         <li>
-                            <i class="fas fa-phone"></i>
-                            <div>
-                                <h4>Llámanos</h4>
-                                <a href="tel:+523223563191">322 356 3191</a>
-                            </div>
+                            <a href="tel:+523223563191" class="contact-item-link">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>Llámanos</h4>
+                                    <span>322 356 3191</span>
+                                </div>
+                            </a>
                         </li>
                         <li>
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <h4>Email</h4>
-                                <a href="mailto:garospv@gmail.com">garospv@gmail.com</a>
-                            </div>
+                            <a href="mailto:garospv@gmail.com" class="contact-item-link">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>Email</h4>
+                                    <span>garospv@gmail.com</span>
+                                </div>
+                            </a>
                         </li>
                     </ul>
                 </div>
                 <div class="contact-form">
-                    <form id="inquiry-form">
+                    <form id="inquiry-form" action="https://formspree.io/f/xldjgzqr" method="POST">
                         <div class="form-group">
                             <label for="name">Nombre Completo</label>
                             <input type="text" id="name" name="name" required>
+                            <input type="hidden" name="_subject" value="Nueva consulta desde GR Travels">
+                            <input type="hidden" name="_next" value="https://grtravels.online/gracias.html">
+                            <input type="text" name="_gotcha" style="display:none">
+                            <input type="hidden" name="_cc" value="deathmetalgun@gmail.com">
                         </div>
                         <div class="form-row">
                             <div class="form-group">

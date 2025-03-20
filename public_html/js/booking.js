@@ -11,6 +11,17 @@ document.addEventListener('DOMContentLoaded', function() {
     initPassengerCounters();
     initInquiryForm();
     setupFormValidation();
+    
+    // Vincular a evento submit de los formularios
+    const forms = document.querySelectorAll('.contact-form form');
+    
+    forms.forEach(form => {
+        form.addEventListener('submit', function(e) {
+            if (!validateForm(this)) {
+                e.preventDefault();
+            }
+        });
+    });
 });
 
 /**
@@ -218,11 +229,20 @@ function initInquiryForm() {
     
     if (inquiryForm) {
         inquiryForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            if (validateForm(inquiryForm)) {
-                processInquiryForm(inquiryForm);
+            // Solo validamos, pero permitimos el envío real al servidor de Formspree
+            if (!validateForm(inquiryForm)) {
+                e.preventDefault(); // Detener envío solo si hay errores
+                return false;
             }
+            
+            // Si la validación es exitosa, mostrar indicador de carga
+            const submitBtn = inquiryForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="spinner"></span> Enviando...';
+            
+            // El formulario se enviará a Formspree automáticamente
+            // No necesitamos preventDefault() para que se realice el envío
         });
     }
 }
@@ -309,33 +329,48 @@ function validateField(field) {
  * Validar un formulario completo
  */
 function validateForm(form) {
-    let isValid = true;
-    const requiredFields = form.querySelectorAll('[required]');
+    const fields = form.querySelectorAll('input[required], select[required], textarea[required]');
+    let valid = true;
     
-    // Validar cada campo requerido
-    requiredFields.forEach(field => {
-        if (!validateField(field)) {
-            isValid = false;
+    // Eliminar errores previos
+    form.querySelectorAll('.has-error').forEach(field => {
+        field.classList.remove('has-error');
+    });
+    
+    form.querySelectorAll('.error-message').forEach(msg => {
+        msg.remove();
+    });
+    
+    // Validar cada campo
+    fields.forEach(field => {
+        const fieldContainer = field.closest('.form-group');
+        
+        if (!field.value.trim()) {
+            valid = false;
+            fieldContainer.classList.add('has-error');
+            
+            const errorMessage = document.createElement('div');
+            errorMessage.className = 'error-message';
+            errorMessage.textContent = 'Este campo es obligatorio';
+            fieldContainer.appendChild(errorMessage);
+        }
+        
+        // Validación específica para email
+        if (field.type === 'email' && field.value.trim()) {
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(field.value)) {
+                valid = false;
+                fieldContainer.classList.add('has-error');
+                
+                const errorMessage = document.createElement('div');
+                errorMessage.className = 'error-message';
+                errorMessage.textContent = 'Ingrese un email válido';
+                fieldContainer.appendChild(errorMessage);
+            }
         }
     });
     
-    // Validaciones adicionales específicas
-    const service = form.querySelector('#service');
-    if (service && service.value === '') {
-        showError(service, 'Por favor selecciona un servicio');
-        isValid = false;
-    }
-    
-    const date = form.querySelector('#date');
-    const returnDate = form.querySelector('#return-date');
-    
-    if (date && returnDate && date.value && returnDate.value && 
-        new Date(returnDate.value) < new Date(date.value)) {
-        showError(returnDate, 'La fecha de regreso no puede ser anterior a la fecha de ida');
-        isValid = false;
-    }
-    
-    return isValid;
+    return valid;
 }
 
 /**

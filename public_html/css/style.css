@@ -1133,6 +1133,7 @@ section {
     display: flex;
     align-items: center;
     gap: var(--space-md);
+    margin-bottom: 15px; /* Añadido margen inferior para separar elementos */
 }
 
 .contact-list h4 {
@@ -1198,6 +1199,89 @@ textarea:focus {
     outline: none;
     border-color: var(--primary);
     box-shadow: 0 0 0 2px rgba(0, 86, 179, 0.2);
+}
+
+/* Estilos mejorados para contacto rápido */
+.contact-item-link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px; /* Aumentado el padding */
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+    color: inherit;
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.05); /* Fondo sutil para mejor separación visual */
+}
+
+.contact-item-link:hover {
+    background-color: rgba(255,255,255,0.1); /* Más visible al pasar el cursor */
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Sombra más pronunciada */
+}
+
+.contact-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(var(--primary-rgb), 0.1);
+    color: var(--primary);
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.contact-item-link:hover .contact-icon {
+    transform: scale(1.15); /* Ligeramente más grande */
+    box-shadow: 0 0 15px rgba(255,255,255,0.3); /* Efecto de brillo */
+}
+
+.contact-text {
+    flex: 1;
+}
+
+.contact-text h4 {
+    margin: 0 0 3px 0;
+    font-size: 1rem;
+    color: white; /* Cambiado a blanco para mejor contraste */
+    font-weight: var(--font-weight-medium); /* Añadir más peso */
+}
+
+.contact-text span {
+    color: var(--secondary); /* Cambiado a color secundario (naranja) */
+    font-weight: 600; /* Aumentado el peso para mejorar visibilidad */
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1); /* Sombra sutil para mejorar legibilidad */
+}
+
+/* Estilos específicos para cada tipo de contacto */
+.contact-item-link:nth-child(1) .contact-icon {
+    background-color: rgba(37, 211, 102, 0.1);
+    color: #25D366;
+}
+
+.contact-item-link:nth-child(1):hover .contact-icon {
+    background-color: #25D366;
+    color: white;
+}
+
+.contact-item-link:nth-child(2) .contact-icon {
+    background-color: rgba(var(--primary-rgb), 0.1);
+}
+
+.contact-item-link:nth-child(2):hover .contact-icon {
+    background-color: var(--primary);
+}
+
+.contact-item-link:nth-child(3) .contact-icon {
+    background-color: rgba(66, 133, 244, 0.1);
+    color: #4285F4;
+}
+
+.contact-item-link:nth-child(3):hover .contact-icon {
+    background-color: #4285F4;
+    color: white;
 }
 
 /*-------------------------------------------
@@ -1426,4 +1510,124 @@ textarea:focus {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* Mejoras para inputs en formularios */
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"],
+.contact-form select,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: #f8f9fa; /* Fondo claro para distinguir del fondo blanco */
+    border: 1px solid #dee2e6; /* Borde visible pero sutil */
+    border-radius: var(--border-radius);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05); /* Sombra interior sutil */
+}
+
+/* Estilos para hover */
+.contact-form input[type="text"]:hover,
+.contact-form input[type="email"]:hover,
+.contact-form input[type="tel"]:hover,
+.contact-form select:hover,
+.contact-form textarea:hover {
+    border-color: #adb5bd; /* Borde más oscuro al pasar el cursor */
+    background-color: #fff; /* Fondo blanco para indicar interactividad */
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1); /* Sombra interior más pronunciada */
+}
+
+/* Estilos para focus */
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form input[type="tel"]:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    outline: none; /* Quitar outline predeterminado */
+    border-color: var(--primary); /* Borde con color principal */
+    box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.2); /* Efecto de resplandor */
+    background-color: #fff; /* Fondo blanco para resaltar el campo activo */
+}
+
+/* Estilo para etiquetas de formulario */
+.contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--dark);
+    font-size: 0.95rem;
+}
+
+/* Estilo para placeholder */
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #adb5bd;
+    opacity: 1;
+}
+
+/* Estilo para campo de formulario con error */
+.contact-form .form-group.has-error input,
+.contact-form .form-group.has-error select,
+.contact-form .form-group.has-error textarea {
+    border-color: #dc3545;
+    background-color: rgba(220, 53, 69, 0.05);
+}
+
+/* Estilo para mensaje de error */
+.contact-form .error-message {
+    color: #dc3545;
+    font-size: 0.85rem;
+    margin-top: 5px;
+}
+
+/* Mejoras para botón de envío */
+.contact-form .btn-primary {
+    width: 100%;
+    padding: 12px;
+    font-weight: 500;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+.contact-form .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(var(--primary-rgb), 0.3);
+}
+
+/*-------------------------------------------
+  SECCIÓN DE AGRADECIMIENTO
+-------------------------------------------*/
+.thank-you-section {
+    padding: var(--space-xl) 0;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+}
+
+.thank-you-content {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    padding: var(--space-xl);
+    box-shadow: var(--box-shadow);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.success-icon {
+    font-size: 4rem;
+    color: #28a745;
+    margin-bottom: var(--space-md);
+}
+
+.thank-you-content h1 {
+    color: var(--primary);
+    margin-bottom: var(--space-md);
+}
+
+.thank-you-content p {
+    margin-bottom: var(--space-lg);
+    font-size: 1.1rem;
 }
