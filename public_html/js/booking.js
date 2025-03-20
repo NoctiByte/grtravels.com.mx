@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initBookingForms();
     initDatePickers();
     initPassengerCounters();
-    initInquiryForm();
     setupFormValidation();
     
     // Comentar o eliminar estas líneas que podrían interferir
@@ -226,36 +225,7 @@ function updatePrice(passengers) {
 /**
  * Inicializar formulario de consulta rápida
  */
-function initInquiryForm() {
-    const inquiryForm = document.getElementById('inquiry-form');
-    
-    if (inquiryForm) {
-        inquiryForm.addEventListener('submit', function(e) {
-            // Solo validamos y mostramos estado de carga
-            if (!validateForm(inquiryForm)) {
-                e.preventDefault(); // Detener envío solo si hay errores
-                return false;
-            }
-            
-            // Si la validación es exitosa, solo mostramos indicador de carga
-            // pero permitimos que el formulario se envíe normalmente
-            const submitBtn = inquiryForm.querySelector('button[type="submit"]');
-            submitBtn.innerHTML = '<span class="spinner"></span> Enviando...';
-            submitBtn.disabled = true;
-            
-            // No hacemos e.preventDefault() para que el formulario se envíe normalmente a Formspree
-            // El formulario continuará su envío natural
-            
-            // Opcional: Después de un tiempo, restauramos el botón por si el envío falla
-            setTimeout(() => {
-                if (inquiryForm.parentNode) { // Verificar que el formulario aún existe
-                    submitBtn.innerHTML = 'Enviar Consulta';
-                    submitBtn.disabled = false;
-                }
-            }, 8000); // Tiempo suficiente para que se complete el envío
-        });
-    }
-}
+
 
 /**
  * Configurar validación de formularios
@@ -421,19 +391,7 @@ function processBookingForm(form) {
 /**
  * Procesar el formulario de consulta
  */
-function processInquiryForm(form) {
-    const submitBtn = form.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
-    
-    // Cambiar estado del botón
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = '<span class="spinner"></span> Enviando...';
-    
-    // Recolectar datos del formulario
-    const formData = new FormData(form);
-    
-    // Simulación de envío (reemplazar con AJAX real)
-}
+
 
 /**
  * Mostrar mensaje de éxito

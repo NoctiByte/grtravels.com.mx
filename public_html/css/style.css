@@ -1597,6 +1597,66 @@ textarea:focus {
     box-shadow: 0 5px 15px rgba(var(--primary-rgb), 0.3);
 }
 
+/* Estilos para mensajes del formulario */
+.form-message {
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+}
+
+.form-message i {
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+.form-message.info {
+    background-color: rgba(var(--primary-rgb), 0.1);
+    color: var(--primary);
+    border-left: 4px solid var(--primary);
+}
+
+.form-message.success {
+    background-color: rgba(40, 167, 69, 0.1);
+    color: #28a745;
+    border-left: 4px solid #28a745;
+}
+
+.form-message.error {
+    background-color: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+    border-left: 4px solid #dc3545;
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 0.85rem;
+    margin-top: 5px;
+}
+
+.is-invalid {
+    border-color: #dc3545 !important;
+    background-color: rgba(220, 53, 69, 0.05) !important;
+}
+
+/* Spinner para indicar carga */
+.spinner {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s linear infinite;
+    margin-right: 8px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
 /*-------------------------------------------
   SECCIÓN DE AGRADECIMIENTO
 -------------------------------------------*/

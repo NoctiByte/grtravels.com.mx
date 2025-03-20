@@ -4,29 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>¡Gracias por tu mensaje! - GR Travels</title>
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Font Awesome para íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        .thank-you-container {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+        }
+        
+        .thank-you-content {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 50px;
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+        }
+        
+        .thank-you-content i {
+            font-size: 60px;
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+        
+        .thank-you-content h1 {
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .thank-you-content p {
+            margin-bottom: 20px;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        
+        .thank-you-content .btn {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header - Debes incluir el mismo header que tienes en index.html -->
     <header class="header">
-        <!-- Mismo header que las otras páginas -->
+        <!-- Copiar el contenido del header de index.html aquí -->
     </header>
 
-    <section class="thank-you-section">
-        <div class="container">
-            <div class="thank-you-content text-center">
-                <i class="fas fa-check-circle success-icon"></i>
-                <h1>¡Gracias por tu mensaje!</h1>
-                <p>Hemos recibido tu consulta correctamente. Nos pondremos en contacto contigo a la brevedad posible.</p>
-                <a href="index.html" class="btn btn-primary">Volver al inicio</a>
-            </div>
+    <div class="thank-you-container">
+        <div class="thank-you-content">
+            <i class="fas fa-check-circle"></i>
+            <h1>¡Gracias por tu mensaje!</h1>
+            <p>Hemos recibido tu consulta correctamente.</p>
+            <p>Un miembro de nuestro equipo se pondrá en contacto contigo a la brevedad posible.</p>
+            <a href="index.html" class="btn btn-primary">Volver al inicio</a>
         </div>
-    </section>
+    </div>
 
-    <!-- Footer -->
+    <!-- Footer - Debes incluir el mismo footer que tienes en index.html -->
     <footer class="footer">
-        <!-- Mismo footer que las otras páginas -->
+        <!-- Copiar el contenido del footer de index.html aquí -->
     </footer>
 </body>
 </html>
