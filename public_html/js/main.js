@@ -15,6 +15,9 @@ document.addEventListener('DOMContentLoaded', function() {
         initFormValidation();
         initAnalyticsTracking();
         initLazyLoading();
+        initMobileMenu();
+        handleMobileAppLinks();
+        initSmoothScroll();
         
         // Preloader - quitar después de cargar la página
         handlePreloader();
@@ -686,4 +689,148 @@ function trackEvent(category, action, label, value) {
     
     // Registrar en la consola para depuración
     console.log(`Evento registrado: ${category} - ${action} - ${label}`);
+}
+
+/**
+ * Inicializar menú móvil con navegación en la misma página
+ */
+function initMobileMenu() {
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const mainNav = document.querySelector('.main-nav');
+    const body = document.body;
+    
+    if (!mobileToggle || !mainNav) {
+        console.warn('Elementos del menú móvil no encontrados');
+        return;
+    }
+    
+    // Limpiar cualquier event listener anterior
+    const toggleClone = mobileToggle.cloneNode(true);
+    mobileToggle.parentNode.replaceChild(toggleClone, mobileToggle);
+    
+    // Añadir nuevo event listener
+    toggleClone.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        this.classList.toggle('active');
+        mainNav.classList.toggle('active');
+        
+        // Controlar overflow del body de manera segura
+        if (this.classList.contains('active')) {
+            body.style.overflow = 'hidden';
+        } else {
+            body.style.overflow = '';
+        }
+        
+        // Accesibilidad
+        const expanded = this.classList.contains('active');
+        this.setAttribute('aria-expanded', expanded.toString());
+        mainNav.setAttribute('aria-hidden', (!expanded).toString());
+        
+        console.log('Toggle menu clicked, active:', expanded);
+    });
+    
+    // Cerrar menú al hacer clic en enlaces
+    mainNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            if (window.innerWidth <= 992) {
+                toggleClone.classList.remove('active');
+                mainNav.classList.remove('active');
+                body.style.overflow = '';
+                
+                // Actualizar atributos ARIA
+                toggleClone.setAttribute('aria-expanded', 'false');
+                mainNav.setAttribute('aria-hidden', 'true');
+            }
+        });
+    });
+    
+    // Cerrar menú al hacer clic fuera de él
+    document.addEventListener('click', function(e) {
+        if (window.innerWidth <= 992 && 
+            toggleClone.classList.contains('active') && 
+            !mainNav.contains(e.target) && 
+            !toggleClone.contains(e.target)) {
+            
+            toggleClone.classList.remove('active');
+            mainNav.classList.remove('active');
+            body.style.overflow = '';
+            
+            // Actualizar atributos ARIA
+            toggleClone.setAttribute('aria-expanded', 'false');
+            mainNav.setAttribute('aria-hidden', 'true');
+        }
+    });
+}
+
+/**
+ * Maneja los enlaces a aplicaciones nativas móviles
+ */
+function handleMobileAppLinks() {
+    // Manejar enlace de Facebook
+    const fbLink = document.getElementById('facebook-link');
+    if (fbLink) {
+        fbLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const fbPageName = 'garovtatours';
+            const fbPageId = ''; // Añadir ID numérico si se conoce
+            
+            // Detectar sistema operativo
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            
+            // Enlaces para diferentes plataformas
+            let fbUrl = `https://www.facebook.com/${fbPageName}`;
+            
+            // Intentar usar aplicación nativa en iOS o Android
+            if (/android/i.test(userAgent)) {
+                // Android: intentar con la aplicación, con fallback a la web
+                if (fbPageId) {
+                    fbUrl = `fb://page/${fbPageId}`;
+                } else {
+                    fbUrl = `fb://facewebmodal/f?href=https://www.facebook.com/${fbPageName}`;
+                }
+            } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                // iOS: intentar con la aplicación, con fallback a la web
+                if (fbPageId) {
+                    fbUrl = `fb://page/?id=${fbPageId}`;
+                } else {
+                    fbUrl = `fb://profile/${fbPageName}`;
+                }
+            }
+            
+            // Abrir en nueva ventana/pestaña
+            window.open(fbUrl, '_blank');
+        });
+    }
+}
+
+/**
+ * Implementar scroll suave para navegación interna
+ */
+function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            
+            // Obtener el destino sin el #
+            const targetId = this.getAttribute('href').substring(1);
+            
+            // Solo procesar si el ID existe en la página
+            if (targetId && document.getElementById(targetId)) {
+                const targetElement = document.getElementById(targetId);
+                
+                // Calcular offset para tener en cuenta el header fijo
+                const headerOffset = 80; // Ajustar según la altura del header
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
 }

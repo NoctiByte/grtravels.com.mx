@@ -5,9 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Servicios de transporte turístico en Puerto Vallarta y Bahía de Banderas. Tours, traslados y excursiones en autobuses y sprinters de lujo.">
     <title>GR Travels | Transporte Turístico en Puerto Vallarta</title>
+        
+    <!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://grtravels.online/">
+<meta property="og:title" content="GR Travels | Transporte Turístico en Puerto Vallarta">
+<meta property="og:description" content="Servicios de transporte turístico en Puerto Vallarta y Bahía de Banderas. Tours, traslados y excursiones en autobuses y sprinters de lujo.">
+<meta property="og:image" content="https://grtravels.online/img/social-cover.webp">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://grtravels.online/">
+<meta property="twitter:title" content="GR Travels | Transporte Turístico en Puerto Vallarta">
+<meta property="twitter:description" content="Servicios de transporte turístico en Puerto Vallarta y Bahía de Banderas. Tours, traslados y excursiones en autobuses y sprinters de lujo.">
+<meta property="twitter:image" content="https://grtravels.online/img/social-cover.webp">
     
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!-- Favicon y app icons -->
+<link rel="apple-touch-icon" sizes="180x180" href="img/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="img/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="img/icons/favicon-16x16.png">
+<link rel="manifest" href="img/icons/site.webmanifest">
+<link rel="mask-icon" href="img/icons/safari-pinned-tab.svg" color="#0056b3">
+<link rel="shortcut icon" href="favicon.ico">
+<meta name="msapplication-TileColor" content="#0056b3">
+<meta name="msapplication-config" content="img/icons/browserconfig.xml">
+<meta name="theme-color" content="#0056b3">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,12 +57,12 @@
                 
                 <nav class="main-nav">
                     <ul class="nav-list">
-                        <li><a href="index.html" class="active">Inicio</a></li>
-                        <li><a href="destinos.html">Destinos</a></li>
-                        <li><a href="servicios.html">Servicios</a></li>
-                        <li><a href="flota.html">Nuestra Flota</a></li>
-                        <li><a href="reservas.html">Reservas</a></li>
-                        <li><a href="contacto.html">Contacto</a></li>
+                        <li><a href="#hero" class="active">Inicio</a></li>
+                        <li><a href="#destinations">Destinos</a></li>
+                        <li><a href="#services">Servicios</a></li>
+                        <li><a href="#fleet">Nuestra Flota</a></li>
+                        <li><a href="#quick-contact">Reservas</a></li>
+                        <li><a href="#quick-contact">Contacto</a></li>
                     </ul>
                 </nav>
                 
@@ -48,7 +70,7 @@
                     <a href="tel:+523223563191" class="phone-link">
                         <i class="fas fa-phone-alt"></i> 322 356 3191
                     </a>
-                    <a href="reservas.html" class="btn btn-primary">Reservar Ahora</a>
+                    <a href="#quick-contact" class="btn btn-primary">Reservar Ahora</a>
                 </div>
                 
                 <button class="mobile-toggle" aria-label="Abrir menú">
@@ -61,7 +83,7 @@
     </header>
 
     <!-- Hero Section con Video/Slider -->
-<section class="hero">
+    <section class="hero" id="hero">
     <div class="hero-slider">
         <!-- Slide 1 -->
         <div class="slide">
@@ -78,7 +100,7 @@
                     <p class="animate-fade">Experimenta lo mejor de la Bahía de Banderas con nuestros servicios de transporte premium</p>
                     <!-- Botones centrados sin div extra -->
                     <div class="hero-buttons animate-fade">
-                        <a href="destinos.html" class="btn btn-primary">Explorar Destinos</a>
+                        <a href="#destinations" class="btn btn-primary">Explorar Destinos</a>
                     </div>
                 </div>
             </div>
@@ -93,7 +115,7 @@
                     <h1 class="animate-fade">Servicio de Clase Mundial</h1>
                     <p class="animate-fade">Vehículos de lujo, conductores profesionales y atención personalizada</p>
                     <div class="hero-buttons animate-fade">
-                        <a href="servicios.html" class="btn btn-primary">Nuestros Servicios</a>
+                        <a href="#services" class="btn btn-primary">Nuestros Servicios</a>
                     </div>
                 </div>
             </div>
@@ -108,7 +130,7 @@
                     <h1 class="animate-fade">Tours Personalizados</h1>
                     <p class="animate-fade">Creamos experiencias únicas adaptadas a tus necesidades</p>
                     <div class="hero-buttons animate-fade">
-                        <a href="reservas.html" class="btn btn-primary">Reservar Tour</a>
+                        <a href="#quick-contact" class="btn btn-primary">Reservar Tour</a>
                     </div>
                 </div>
             </div>
@@ -124,7 +146,7 @@
 </section>
 
     <!-- Servicios Destacados -->
-    <section class="services">
+    <section class="services" id="services">
         <div class="container">
             <div class="section-header">
                 <h2>Nuestros Servicios</h2>
@@ -176,7 +198,7 @@
     </section>
 
     <!-- Destinos Populares -->
-    <section class="destinations">
+    <section class="destinations" id="destinations">
         <div class="container">
             <div class="section-header">
                 <h2>Destinos Populares</h2>
@@ -189,7 +211,6 @@
                     <div class="destination-content">
                         <h3>Sayulita</h3>
                         <p>Pintoresco pueblo surfero con vibrante vida cultural</p>
-                        <a href="destinos.html#sayulita" class="btn btn-sm">Ver Detalles</a>
                     </div>
                 </div>
                 
@@ -198,7 +219,6 @@
                     <div class="destination-content">
                         <h3>San Pancho</h3>
                         <p>Tranquilo pueblo costero con hermosas playas</p>
-                        <a href="destinos.html#sanpancho" class="btn btn-sm">Ver Detalles</a>
                     </div>
                 </div>
 
@@ -207,7 +227,6 @@
                     <div class="destination-content">
                         <h3>Pueblos Mágicos</h3>
                         <p>Descubre el encanto de los Pueblos Mágicos cercanos a Puerto Vallarta</p>
-                        <a href="destinos.html#pueblos-magicos" class="btn btn-sm">Ver Detalles</a>
                     </div>
                 </div>
 
@@ -216,7 +235,6 @@
                     <div class="destination-content">
                         <h3>Iglesia de Guadalupe</h3>
                         <p>Transporte para bodas y eventos especiales en este emblemático templo</p>
-                        <a href="destinos.html#iglesia-guadalupe" class="btn btn-sm">Ver Detalles</a>
                     </div>
                 </div>
 
@@ -225,7 +243,6 @@
                     <div class="destination-content">
                         <h3>Centro de Convenciones</h3>
                         <p>Servicio exclusivo para eventos y conferencias empresariales</p>
-                        <a href="destinos.html#centro-convenciones" class="btn btn-sm">Ver Detalles</a>
                     </div>
                 </div>
                 
@@ -234,19 +251,18 @@
                     <div class="destination-content">
                         <h3>Tequila</h3>
                         <p>Pueblo Mágico cuna de la bebida mexicana por excelencia</p>
-                        <a href="destinos.html#tequila" class="btn btn-sm">Ver Detalles</a>
                     </div>
                 </div>
             </div>
             
             <div class="text-center">
-                <a href="destinos.html" class="btn btn-primary">Ver Todos los Destinos</a>
+                <a href="#destinations" class="btn btn-primary">Ver Todos los Destinos</a>
             </div>
         </div>
     </section>
 
     <!-- Nuestra Flota -->
-    <section class="fleet">
+    <section class="fleet" id="fleet">
         <div class="container">
             <div class="section-header">
                 <h2>Nuestra Flota Premium</h2>
@@ -256,33 +272,31 @@
             <div class="fleet-grid">
                 <div class="fleet-item">
                     <div class="fleet-image">
-                        <img src="img/vehicles/sprinter.webp" alt="Mercedes-Benz Sprinter" loading="lazy">
+                        <img src="img/vehicles/Jac.webp" alt="Mercedes-Benz Sprinter" loading="lazy">
                     </div>
                     <div class="fleet-details">
-                        <h3>Mercedes-Benz Sprinter</h3>
+                        <h3>JAC Sunray</h3>
                         <ul class="features">
                             <li><i class="fas fa-users"></i> 15 pasajeros</li>
                             <li><i class="fas fa-snowflake"></i> Aire acondicionado</li>
                             <li><i class="fas fa-wifi"></i> WiFi a bordo</li>
                             <li><i class="fas fa-tv"></i> Pantallas HD</li>
                         </ul>
-                        <a href="flota.html#sprinter" class="btn btn-outline">Más Detalles</a>
                     </div>
                 </div>
                 
                 <div class="fleet-item">
                     <div class="fleet-image">
-                        <img src="img/vehicles/autobus.webp" alt="Autobús Turístico" loading="lazy">
+                        <img src="img/vehicles/volvo.webp" alt="Autobús Turístico" loading="lazy">
                     </div>
                     <div class="fleet-details">
-                        <h3>Autobús Turístico</h3>
+                        <h3>Volvo 9700</h3>
                         <ul class="features">
                             <li><i class="fas fa-users"></i> 45 pasajeros</li>
                             <li><i class="fas fa-snowflake"></i> Aire acondicionado</li>
                             <li><i class="fas fa-toilet"></i> Baño a bordo</li>
                             <li><i class="fas fa-couch"></i> Asientos reclinables</li>
                         </ul>
-                        <a href="flota.html#autobus" class="btn btn-outline">Más Detalles</a>
                     </div>
                 </div>
             </div>
@@ -290,7 +304,7 @@
     </section>
 
     <!-- Testimonios - Sección Corregida -->
-<section class="testimonials">
+    <section class="testimonials" id="testimonials">
     <div class="container">
         <div class="section-header">
             <h2>Lo que Dicen Nuestros Clientes</h2>
@@ -305,7 +319,7 @@
                     <div class="testimonial-card">
                         <div class="testimonial-header">
                             <div class="client-avatar">
-                                <img src="img/testimonials/client1.jpg" alt="María García" loading="lazy">
+                                <img src="img/testimonials/client1.webp" alt="María García" loading="lazy">
                             </div>
                             <div class="client-info">
                                 <h4>María García</h4>
@@ -339,10 +353,10 @@
                     <div class="testimonial-card">
                         <div class="testimonial-header">
                             <div class="client-avatar">
-                                <img src="img/testimonials/client2.jpg" alt="John Smith" loading="lazy">
+                                <img src="img/testimonials/client2.webp" alt="John Smith" loading="lazy">
                             </div>
                             <div class="client-info">
-                                <h4>John Smith</h4>
+                                <h4>Juan Villa</h4>
                                 <span>Tour a Sayulita</span>
                                 <div class="rating" aria-label="5 de 5 estrellas">
                                     <i class="fas fa-star"></i>
@@ -373,7 +387,7 @@
                     <div class="testimonial-card">
                         <div class="testimonial-header">
                             <div class="client-avatar">
-                                <img src="img/testimonials/client3.jpg" alt="Roberto Méndez" loading="lazy">
+                                <img src="img/testimonials/client3.webp" alt="Roberto Méndez" loading="lazy">
                             </div>
                             <div class="client-info">
                                 <h4>Roberto Méndez</h4>
@@ -407,7 +421,7 @@
                     <div class="testimonial-card">
                         <div class="testimonial-header">
                             <div class="client-avatar">
-                                <img src="img/testimonials/client4.jpg" alt="Ana Rodríguez" loading="lazy">
+                                <img src="img/testimonials/client4.webp" alt="Ana Rodríguez" loading="lazy">
                             </div>
                             <div class="client-info">
                                 <h4>Ana Rodríguez</h4>
@@ -466,20 +480,12 @@
                     <i class="fas fa-star"></i>
                 </div>
             </div>
-            <div class="review-platforms">
-                <span>En:</span>
-                <div class="platform-icons">
-                    <i class="fab fa-google" title="Google"></i>
-                    <i class="fab fa-tripadvisor" title="TripAdvisor"></i>
-                    <i class="fab fa-facebook" title="Facebook"></i>
-                </div>
-            </div>
         </div>
     </div>
 </section>
 
     <!-- Formulario de Contacto Rápido -->
-    <section class="quick-contact">
+    <section class="quick-contact" id="quick-contact">
         <div class="container">
             <div class="contact-wrapper">
                 <div class="contact-info">
@@ -530,7 +536,7 @@
                             <input type="hidden" name="_subject" value="Nueva consulta desde GR Travels">
                             <input type="hidden" name="_next" value="https://grtravels.online/gracias.html">
                             <input type="text" name="_gotcha" style="display:none">
-                            <input type="hidden" name="_cc" value="mulishacross@hotmail.com">
+                            <input type="hidden" name="_cc" value="garospv@gmail.com">
                         </div>
                         <div class="form-row">
                             <div class="form-group">
@@ -568,10 +574,10 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-about">
-                    <img src="img/logo.webp" alt="GR Travels Logo" class="footer-logo" width="160" height="55">
+                    <img src="img/logo.webp" alt="GR Travels Logo" class="footer-logo" width="80" height="27">
                     <p>Somos una empresa líder en servicios de transporte turístico en Puerto Vallarta, comprometidos con ofrecer experiencias de viaje excepcionales.</p>
                     <div class="social-links">
-                        <a href="https://www.facebook.com/garovtatours" aria-label="Facebook" class="social-icon facebook">
+                        <a href="fb://page/garovtatours" aria-label="Facebook" class="social-icon facebook" id="facebook-link">
                             <i class="fab fa-facebook-f"></i>
                         </a>
                         <a href="https://www.instagram.com/grtravelstours" aria-label="Instagram" class="social-icon instagram">
@@ -586,22 +592,22 @@
                 <div class="footer-links">
                     <h3>Enlaces Rápidos</h3>
                     <ul>
-                        <li><a href="index.html">Inicio</a></li>
-                        <li><a href="destinos.html">Destinos</a></li>
-                        <li><a href="servicios.html">Servicios</a></li>
-                        <li><a href="flota.html">Nuestra Flota</a></li>
-                        <li><a href="reservas.html">Reservas</a></li>
-                        <li><a href="contacto.html">Contacto</a></li>
+                        <li><a href="#hero">Inicio</a></li>
+                        <li><a href="#destinations">Destinos</a></li>
+                        <li><a href="#services">Servicios</a></li>
+                        <li><a href="#fleet">Nuestra Flota</a></li>
+                        <li><a href="#quick-contact">Reservas</a></li>
+                        <li><a href="#quick-contact">Contacto</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-services">
                     <h3>Servicios</h3>
                     <ul>
-                        <li><a href="servicios.html#airport">Traslados Aeropuerto</a></li>
-                        <li><a href="servicios.html#tours">Tours Guiados</a></li>
-                        <li><a href="servicios.html#groups">Eventos Grupales</a></li>
-                        <li><a href="servicios.html#custom">Viajes Personalizados</a></li>
+                        <li><a href="#services">Traslados Aeropuerto</a></li>
+                        <li><a href="#services">Tours Guiados</a></li>
+                        <li><a href="#services">Eventos Grupales</a></li>
+                        <li><a href="#services">Viajes Personalizados</a></li>
                     </ul>
                 </div>
                 
