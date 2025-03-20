@@ -200,6 +200,49 @@ section {
     width: 100%;
 }
 
+/* Botones de contacto WhatsApp y Email */
+.btn-whatsapp {
+    background-color: #25D366;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 15px;
+    border-radius: 30px;
+    font-weight: 500;
+    margin-top: 5px;
+    transition: all 0.3s ease;
+}
+
+.btn-whatsapp:hover {
+    background-color: #128C7E;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+    color: white;
+}
+
+.btn-email {
+    background-color: #0056b3;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 15px;
+    border-radius: 30px;
+    font-weight: 500;
+    margin-top: 5px;
+    transition: all 0.3s ease;
+}
+
+.btn-email:hover {
+    background-color: #004494;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 86, 179, 0.3);
+    color: white;
+}
+
 /*-------------------------------------------
   HEADER Y NAVEGACIÓN
 -------------------------------------------*/
@@ -1184,7 +1227,75 @@ textarea:focus {
 
 .social-links {
     display: flex;
-    gap: var(--space-sm);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 18px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.social-icon:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.1);
+    transform: scale(0);
+    transition: all 0.3s ease;
+    border-radius: 50%;
+}
+
+.social-icon:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.social-icon:hover:before {
+    transform: scale(1);
+}
+
+.social-icon i {
+    position: relative;
+    z-index: 1;
+}
+
+/* Colores específicos para cada red social */
+.social-icon.facebook {
+    background: linear-gradient(45deg, #3b5998, #4c70ba);
+}
+
+.social-icon.instagram {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+.social-icon.whatsapp {
+    background: linear-gradient(45deg, #25D366, #128C7E);
+}
+
+.social-icon.facebook:hover {
+    background: linear-gradient(45deg, #4c70ba, #3b5998);
+}
+
+.social-icon.instagram:hover {
+    background: linear-gradient(45deg, #bc1888, #cc2366, #dc2743, #e6683c, #f09433);
+}
+
+.social-icon.whatsapp:hover {
+    background: linear-gradient(45deg, #128C7E, #25D366);
 }
 
 .social-links a {
