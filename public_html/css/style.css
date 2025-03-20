@@ -294,6 +294,44 @@ section {
     -webkit-overflow-scrolling: touch; /* Mejorar scroll en iOS */
 }
 
+.nav-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2rem;
+}
+
+.nav-list a {
+    color: var(--text);
+    font-weight: var(--font-weight-medium);
+    position: relative;
+    display: inline-block;
+    padding: 5px 0;
+}
+
+.nav-list a.active,
+.nav-list a:hover {
+    color: var(--primary);
+}
+
+/* Estilo para la línea debajo de los elementos activos/hover */
+.nav-list a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.nav-list a:hover::after,
+.nav-list a.active::after {
+    width: 100%;
+}
+
 @media (min-width: 993px) {
     body.menu-open {
         overflow: auto !important;
@@ -315,23 +353,6 @@ section {
         padding: 12px 15px;
         text-align: center;
     }
-}
-
-.main-nav a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background-color: var(--primary);
-    transition: var(--transition);
-    transform: translateX(-50%);
-}
-
-.main-nav a:hover::after,
-.main-nav a.active::after {
-    width: 100%;
 }
 
 .main-nav a.active {
@@ -381,20 +402,6 @@ section {
     margin: 6px 0;
     transition: var(--transition);
 }
-
-/* Mejorar destacado de navegación activa */
-.nav-list a.active::after,
-    .nav-list a:hover::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 15%; /* Centrar la línea */
-        width: 70%; /* Ancho controlado */
-        height: 2px;
-        background-color: var(--primary);
-        transition: width 0.3s ease;
-        transform: translateX(0); /* Quitar transformación que causa el problema */
-    }
 
 .nav-list a.active::after,
 .nav-list a:hover::after {
