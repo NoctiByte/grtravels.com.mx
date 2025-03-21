@@ -1,4 +1,4 @@
-/* filepath: /home/xyz/var/www/grtravels.online/public_html/js/booking.js */
+/* filepath: /home/xyz/var/www/grtravels.com.mx/public_html/js/booking.js */
 /**
  * GR Travels - Sistema de Reservaciones
  * Maneja formularios de reserva y consultas rápidas
