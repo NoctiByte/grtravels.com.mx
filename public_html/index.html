@@ -4,21 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Servicios de transporte turístico en Puerto Vallarta y Bahía de Banderas. Tours, traslados y excursiones en autobuses y sprinters de lujo.">
+    <meta name="geo.region" content="MX" />
+    <meta name="geo.placename" content="Puerto Vallarta, Jalisco" />
+    <meta name="geo.position" content="20.653407;-105.225332" />
+    <meta name="ICBM" content="20.653407, -105.225332" />
     <title>GR Travels | Transporte Turístico en Puerto Vallarta</title>
-        
+    <link rel="alternate" hreflang="es-mx" href="https://grtravels.com.mx/" />
+    <link rel="alternate" hreflang="x-default" href="https://grtravels.com.mx/" />    
     <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://grtravels.online/">
+<meta property="og:url" content="https://grtravels.com.mx/">
 <meta property="og:title" content="GR Travels | Transporte Turístico en Puerto Vallarta">
 <meta property="og:description" content="Servicios de transporte turístico en Puerto Vallarta y Bahía de Banderas. Tours, traslados y excursiones en autobuses y sprinters de lujo.">
-<meta property="og:image" content="https://grtravels.online/img/social-cover.webp">
+<meta property="og:image" content="https://grtravels.com.mx/img/social-cover.webp">
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="https://grtravels.online/">
+<meta property="twitter:url" content="https://grtravels.com.mx/">
 <meta property="twitter:title" content="GR Travels | Transporte Turístico en Puerto Vallarta">
 <meta property="twitter:description" content="Servicios de transporte turístico en Puerto Vallarta y Bahía de Banderas. Tours, traslados y excursiones en autobuses y sprinters de lujo.">
-<meta property="twitter:image" content="https://grtravels.online/img/social-cover.webp">
+<meta property="twitter:image" content="https://grtravels.com.mx/img/social-cover.webp">
     
     <!-- Favicon y app icons -->
 <link rel="apple-touch-icon" sizes="180x180" href="img/icons/apple-touch-icon.png">
@@ -43,6 +48,20 @@
     
     <!-- Font Awesome para íconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  
+  gtag('config', 'G-XXXXXXXXXX', {
+    'send_page_view': true,
+    'user_properties': {
+      'country': 'Mexico'
+    }
+  });
+</script>
 </head>
 <body>
     <!-- Header y Navegación -->
@@ -261,47 +280,62 @@
         </div>
     </section>
 
-    <!-- Nuestra Flota -->
-    <section class="fleet" id="fleet">
-        <div class="container">
-            <div class="section-header">
-                <h2>Nuestra Flota Premium</h2>
-                <p>Vehículos modernos, confortables y totalmente equipados para su seguridad</p>
+<!-- Nuestra Flota -->
+<section class="fleet" id="fleet">
+    <div class="container">
+        <div class="section-header">
+            <h2>Nuestra Flota Premium</h2>
+            <p>Vehículos modernos, confortables y totalmente equipados para su seguridad</p>
+        </div>
+        
+        <div class="fleet-grid">
+            <div class="fleet-item">
+                <div class="fleet-image">
+                    <img src="img/vehicles/Jac.webp" alt="JAC Sunray" loading="lazy">
+                </div>
+                <div class="fleet-details">
+                    <h3>JAC Sunray</h3>
+                    <ul class="features">
+                        <li><i class="fas fa-users"></i> Capacidades disponibles: 14, 17 y 19 pasajeros</li>
+                        <li><i class="fas fa-snowflake"></i> Aire acondicionado</li>
+                        <li><i class="fas fa-wifi"></i> WiFi a bordo</li>
+                        <li><i class="fas fa-tv"></i> Pantallas HD</li>
+                    </ul>
+                </div>
             </div>
             
-            <div class="fleet-grid">
-                <div class="fleet-item">
-                    <div class="fleet-image">
-                        <img src="img/vehicles/Jac.webp" alt="Mercedes-Benz Sprinter" loading="lazy">
-                    </div>
-                    <div class="fleet-details">
-                        <h3>JAC Sunray</h3>
-                        <ul class="features">
-                            <li><i class="fas fa-users"></i> 15 pasajeros</li>
-                            <li><i class="fas fa-snowflake"></i> Aire acondicionado</li>
-                            <li><i class="fas fa-wifi"></i> WiFi a bordo</li>
-                            <li><i class="fas fa-tv"></i> Pantallas HD</li>
-                        </ul>
-                    </div>
+            <div class="fleet-item">
+                <div class="fleet-image">
+                    <img src="img/vehicles/volvo.webp" alt="Volvo 9700" loading="lazy">
                 </div>
-                
-                <div class="fleet-item">
-                    <div class="fleet-image">
-                        <img src="img/vehicles/volvo.webp" alt="Autobús Turístico" loading="lazy">
-                    </div>
-                    <div class="fleet-details">
-                        <h3>Volvo 9700</h3>
-                        <ul class="features">
-                            <li><i class="fas fa-users"></i> 45 pasajeros</li>
-                            <li><i class="fas fa-snowflake"></i> Aire acondicionado</li>
-                            <li><i class="fas fa-toilet"></i> Baño a bordo</li>
-                            <li><i class="fas fa-couch"></i> Asientos reclinables</li>
-                        </ul>
-                    </div>
+                <div class="fleet-details">
+                    <h3>Volvo 9700</h3>
+                    <ul class="features">
+                        <li><i class="fas fa-users"></i> Capacidades disponibles: 44, 47, 49 y 51 pasajeros</li>
+                        <li><i class="fas fa-snowflake"></i> Aire acondicionado</li>
+                        <li><i class="fas fa-toilet"></i> Baño a bordo</li>
+                        <li><i class="fas fa-couch"></i> Asientos reclinables</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="fleet-item">
+                <div class="fleet-image">
+                    <img src="img/vehicles/suburban.webp" alt="Suburban" loading="lazy">
+                </div>
+                <div class="fleet-details">
+                    <h3>Suburban High Country</h3>
+                    <ul class="features">
+                        <li><i class="fas fa-users"></i> Capacidades disponibles: 7, 9, 14 y 19 pasajeros</li>
+                        <li><i class="fas fa-snowflake"></i> Aire acondicionado</li>
+                        <li><i class="fas fa-wifi"></i> WiFi a bordo</li>
+                        <li><i class="fas fa-shield-alt"></i> Máximo confort y seguridad</li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Testimonios - Sección Corregida -->
     <section class="testimonials" id="testimonials">
@@ -494,8 +528,8 @@
                     <ul class="contact-list">
                         <li>
                             <a href="https://wa.me/523223563191" class="contact-item-link">
-                                <div class="contact-icon">
-                                    <i class="fab fa-whatsapp"></i>
+                                <div class="contact-icon whatsapp-icon">
+                                    <i class="fas fa-comment"></i>
                                 </div>
                                 <div class="contact-text">
                                     <h4>WhatsApp</h4>
@@ -505,8 +539,8 @@
                         </li>
                         <li>
                             <a href="tel:+523223563191" class="contact-item-link">
-                                <div class="contact-icon">
-                                    <i class="fas fa-phone"></i>
+                                <div class="contact-icon phone-icon">
+                                    <i class="fas fa-phone-alt"></i>
                                 </div>
                                 <div class="contact-text">
                                     <h4>Llámanos</h4>
@@ -516,7 +550,7 @@
                         </li>
                         <li>
                             <a href="mailto:garospv@gmail.com" class="contact-item-link">
-                                <div class="contact-icon">
+                                <div class="contact-icon email-icon">
                                     <i class="fas fa-envelope"></i>
                                 </div>
                                 <div class="contact-text">
@@ -534,7 +568,7 @@
                             <label for="name">Nombre Completo</label>
                             <input type="text" id="name" name="name" required>
                             <input type="hidden" name="_subject" value="Nueva consulta desde GR Travels">
-                            <input type="hidden" name="_next" value="https://grtravels.online/gracias.html">
+                            <input type="hidden" name="_next" value="https://grtravels.com.mx/gracias.html">
                             <input type="text" name="_gotcha" style="display:none">
                             <input type="hidden" name="_cc" value="garospv@gmail.com">
                         </div>
@@ -646,5 +680,50 @@
     <script src="js/testimonials.js" defer></script>
     <script src="js/form-handler.js" defer></script>
     <script src="js/booking.js" defer></script>
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "name": "GR Travels",
+          "image": "https://grtravels.com.mx/img/logo.webp",
+          "@id": "https://grtravels.com.mx",
+          "url": "https://grtravels.com.mx",
+          "telephone": "+523223563191",
+          "priceRange": "$$",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Puerto Vallarta",
+            "addressLocality": "Puerto Vallarta",
+            "addressRegion": "Jalisco",
+            "postalCode": "48300",
+            "addressCountry": "MX"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 20.653407,
+            "longitude": -105.225332
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "opens": "08:00",
+              "closes": "20:00"
+            }
+          ],
+          "sameAs": [
+            "https://www.facebook.com/garovtatours",
+            "https://www.instagram.com/grtravelstours"
+          ]
+        }
+        </script>
 </body>
 </html>

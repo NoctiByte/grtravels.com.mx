@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /gracias.html
+Disallow: /404.html
 
-Sitemap: https://grtravels.online/sitemap.xml
+Sitemap: https://grtravels.com.mx/sitemap.xml
