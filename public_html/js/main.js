@@ -331,7 +331,7 @@ function initFormValidation() {
         const form = e.target;
         
         // Verificar si es un formulario que debemos manejar
-        if (form.classList.contains('validate-form') || form.id === 'inquiry-form' || form.id === 'booking-form') {
+        if (form.classList.contains('validate-form') || form.id === 'booking-form') {
             e.preventDefault();
             
             if (validateForm(form)) {
@@ -353,7 +353,7 @@ function initFormValidation() {
         const input = e.target;
         const form = input.closest('form');
         
-        if (form && (form.classList.contains('validate-form') || form.id === 'inquiry-form' || form.id === 'booking-form')) {
+        if (form && (form.classList.contains('validate-form') || form.id === 'booking-form')) {
             // Validar el campo específico
             validateSingleField(input);
         }
@@ -364,7 +364,7 @@ function initFormValidation() {
         const input = e.target;
         const form = input.closest('form');
         
-        if (form && (form.classList.contains('validate-form') || form.id === 'inquiry-form' || form.id === 'booking-form')) {
+        if (form && (form.classList.contains('validate-form') || form.id === 'booking-form')) {
             validateSingleField(input);
         }
     }, true);

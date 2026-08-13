@@ -27,11 +27,10 @@
     
     <!-- Favicon y app icons -->
 <link rel="apple-touch-icon" sizes="180x180" href="img/icons/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="img/icons/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="img/icons/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="96x96" href="img/icons/favicon-96x96.png">
+<link rel="icon" type="image/svg+xml" href="img/icons/favicon.svg">
 <link rel="manifest" href="img/icons/site.webmanifest">
-<link rel="mask-icon" href="img/icons/safari-pinned-tab.svg" color="#0056b3">
-<link rel="shortcut icon" href="favicon.ico">
+<link rel="shortcut icon" href="img/icons/favicon.ico">
 <meta name="msapplication-TileColor" content="#0056b3">
 <meta name="msapplication-config" content="img/icons/browserconfig.xml">
 <meta name="theme-color" content="#0056b3">
@@ -45,23 +44,12 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/legal.css">
     
     <!-- Font Awesome para íconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  
-  gtag('config', 'G-XXXXXXXXXX', {
-    'send_page_view': true,
-    'user_properties': {
-      'country': 'Mexico'
-    }
-  });
-</script>
+    <!-- Google Analytics se carga desde cookie-consent.js únicamente con consentimiento. -->
+    <meta name="google-analytics-id" content="G-XXXXXXXXXX">
 </head>
 <body>
     <!-- Header y Navegación -->
@@ -596,6 +584,10 @@
                             <label for="message">Mensaje</label>
                             <textarea id="message" name="message" rows="3"></textarea>
                         </div>
+                        <div class="form-privacy-note">
+                            <input type="checkbox" id="privacy-acceptance" name="privacy_acceptance" value="Aceptado" required>
+                            <label for="privacy-acceptance">He leído el <a href="privacidad.html" target="_blank" rel="noopener">Aviso de Privacidad</a> y autorizo el uso de mis datos para atender esta solicitud.</label>
+                        </div>
                         <button type="submit" class="btn btn-primary btn-block" id="submit-btn">Enviar Consulta</button>
                     </form>
                 </div>
@@ -665,10 +657,12 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2025 GR Travels. Todos los derechos reservados.</p>
+                <p>&copy; 2026 GR Travels. Todos los derechos reservados.</p>
                 <ul class="footer-legal">
-                    <li><a href="privacidad.html">Política de Privacidad</a></li>
+                    <li><a href="privacidad.html">Aviso de Privacidad</a></li>
                     <li><a href="terminos.html">Términos y Condiciones</a></li>
+                    <li><a href="cookies.html">Aviso de Cookies</a></li>
+                    <li><button type="button" class="cookie-settings-link" data-cookie-settings>Configurar cookies</button></li>
                 </ul>
             </div>
         </div>
@@ -680,6 +674,7 @@
     <script src="js/testimonials.js" defer></script>
     <script src="js/form-handler.js" defer></script>
     <script src="js/booking.js" defer></script>
+    <script src="js/cookie-consent.js" defer></script>
     <script type="application/ld+json">
         {
           "@context": "https://schema.org",

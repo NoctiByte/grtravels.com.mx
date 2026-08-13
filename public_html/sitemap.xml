@@ -2,8 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
    <url>
       <loc>https://grtravels.com.mx/</loc>
-      <lastmod>2025-03-21</lastmod>
+      <lastmod>2026-08-12</lastmod>
       <changefreq>monthly</changefreq>
       <priority>1.0</priority>
+   </url>
+   <url>
+      <loc>https://grtravels.com.mx/privacidad.html</loc>
+      <lastmod>2026-08-12</lastmod>
+      <changefreq>yearly</changefreq>
+      <priority>0.4</priority>
+   </url>
+   <url>
+      <loc>https://grtravels.com.mx/terminos.html</loc>
+      <lastmod>2026-08-12</lastmod>
+      <changefreq>yearly</changefreq>
+      <priority>0.4</priority>
+   </url>
+   <url>
+      <loc>https://grtravels.com.mx/cookies.html</loc>
+      <lastmod>2026-08-12</lastmod>
+      <changefreq>yearly</changefreq>
+      <priority>0.3</priority>
    </url>
 </urlset>

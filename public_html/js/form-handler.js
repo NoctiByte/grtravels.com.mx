@@ -102,9 +102,10 @@ function validateForm(form) {
     // Validar campos requeridos
     const requiredFields = form.querySelectorAll('[required]');
     requiredFields.forEach(field => {
-        if (!field.value.trim()) {
+        const isUncheckedChoice = (field.type === 'checkbox' || field.type === 'radio') && !field.checked;
+        if (isUncheckedChoice || !field.value.trim()) {
             isValid = false;
-            markFieldAsInvalid(field, 'Este campo es obligatorio');
+            markFieldAsInvalid(field, field.type === 'checkbox' ? 'Debes aceptar el aviso para enviar la solicitud' : 'Este campo es obligatorio');
         }
     });
     
