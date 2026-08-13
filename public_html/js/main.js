@@ -1,7 +1,7 @@
 /* filepath: /home/xyz/var/www/grtravels.com.mx/public_html/js/main.js */
 /**
  * GR Travels - Archivo JavaScript principal
- * Versión optimizada - Marzo 2025
+ * Versión optimizada - Agosto 2026
  * Contiene funcionalidades generales del sitio
  */
 

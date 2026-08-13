@@ -1,6 +1,6 @@
 /**
  * GR Travels - Testimonials Slider Controller
- * Versión optimizada y corregida - Marzo 2025
+ * Versión optimizada y corregida - Agosto 2026
  */
 
 document.addEventListener('DOMContentLoaded', function() {
