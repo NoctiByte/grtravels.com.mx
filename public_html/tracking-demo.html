@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Demo piloto de monitoreo y rastreo de unidades de GR Travels con rutas, estados y video en vivo.">
+    <title>Centro de Control | Demo Piloto GR Travels</title>
+    <link rel="canonical" href="https://grtravels.com.mx/public_html/tracking-demo.html">
+    <link rel="icon" href="img/icons/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/tracking-demo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="tracking-page">
+    <header class="tracking-topbar">
+        <div class="tracking-shell tracking-topbar-inner">
+            <a class="tracking-brand" href="index.html" aria-label="Volver al inicio de GR Travels">
+                <img src="img/logo.webp" alt="GR Travels" width="142" height="48">
+                <span class="tracking-brand-divider" aria-hidden="true"></span>
+                <span class="tracking-brand-label">Centro de Control</span>
+            </a>
+            <div class="tracking-topbar-actions">
+                <span class="demo-pill"><span class="demo-dot"></span> Demo piloto</span>
+                <a class="tracking-back-link" href="index.html"><i class="fas fa-arrow-left" aria-hidden="true"></i> Sitio principal</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="tracking-shell tracking-main">
+        <section class="tracking-intro" aria-labelledby="tracking-title">
+            <div>
+                <p class="eyebrow"><i class="fas fa-satellite-dish" aria-hidden="true"></i> Operación conectada para GR Travels</p>
+                <h1 id="tracking-title">Cada unidad. Cada ruta. Una sola vista.</h1>
+                <p class="tracking-lead">Un centro de control pensado para dar confianza a pasajeros, coordinadores y clientes corporativos desde el primer kilómetro hasta la llegada.</p>
+            </div>
+            <div class="intro-actions">
+                <button type="button" class="btn btn-primary btn-live-request" data-open-contact><i class="fas fa-rocket" aria-hidden="true"></i> Solicitar piloto</button>
+                <p><i class="fas fa-shield-alt" aria-hidden="true"></i> Datos de muestra · Sin conexión a GPS real</p>
+            </div>
+        </section>
+
+        <section class="tracking-kpis" aria-label="Resumen operativo">
+            <article class="kpi-card kpi-blue">
+                <span class="kpi-icon"><i class="fas fa-bus" aria-hidden="true"></i></span>
+                <div><strong id="active-units-count">3</strong><span>unidades monitoreadas</span></div>
+                <small><i class="fas fa-arrow-up" aria-hidden="true"></i> 100% conectadas</small>
+            </article>
+            <article class="kpi-card kpi-green">
+                <span class="kpi-icon"><i class="fas fa-route" aria-hidden="true"></i></span>
+                <div><strong>126.8 km</strong><span>recorridos hoy</span></div>
+                <small><i class="fas fa-check" aria-hidden="true"></i> 4 rutas activas</small>
+            </article>
+            <article class="kpi-card kpi-orange">
+                <span class="kpi-icon"><i class="fas fa-clock" aria-hidden="true"></i></span>
+                <div><strong>98.4%</strong><span>puntualidad estimada</span></div>
+                <small><i class="fas fa-bolt" aria-hidden="true"></i> Tiempo real</small>
+            </article>
+            <article class="kpi-card kpi-purple">
+                <span class="kpi-icon"><i class="fas fa-video" aria-hidden="true"></i></span>
+                <div><strong>2</strong><span>cámaras disponibles</span></div>
+                <small><i class="fas fa-lock" aria-hidden="true"></i> Acceso protegido</small>
+            </article>
+        </section>
+
+        <section class="tracking-grid tracking-grid-main">
+            <article class="panel map-panel" aria-labelledby="map-title">
+                <div class="panel-heading">
+                    <div>
+                        <p class="panel-kicker">Vista operativa</p>
+                        <h2 id="map-title">Mapa de unidades</h2>
+                    </div>
+                    <div class="map-heading-actions">
+                        <span class="sync-status"><span class="sync-dot"></span> Actualizado hace <strong id="last-sync">12 s</strong></span>
+                        <button type="button" class="icon-button" title="Simular nueva actualización" aria-label="Simular nueva actualización" data-refresh-map><i class="fas fa-sync-alt" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+                <div class="map-toolbar" role="group" aria-label="Capas del mapa">
+                    <button type="button" class="map-filter active" data-map-filter="all"><span class="filter-dot all-dot"></span> Todas <b>3</b></button>
+                    <button type="button" class="map-filter" data-map-filter="moving"><span class="filter-dot moving-dot"></span> En ruta <b>2</b></button>
+                    <button type="button" class="map-filter" data-map-filter="stop"><span class="filter-dot stop-dot"></span> En parada <b>1</b></button>
+                    <span class="map-legend-note"><i class="fas fa-info-circle" aria-hidden="true"></i> Posiciones simuladas</span>
+                </div>
+                <div class="demo-map" id="demo-map" aria-label="Mapa simulado de Bahía de Banderas con tres unidades">
+                    <div class="map-water-label">BAHÍA DE BANDERAS</div>
+                    <div class="map-land-label land-pv">PUERTO<br>VALLARTA</div>
+                    <div class="map-land-label land-nv">NUEVO<br>VALLARTA</div>
+                    <div class="map-land-label land-sp">SAN PANCHO</div>
+                    <div class="map-road road-one"></div><div class="map-road road-two"></div><div class="map-road road-three"></div>
+                    <div class="map-route route-blue"><span></span><span></span><span></span></div>
+                    <div class="map-route route-orange"><span></span><span></span><span></span></div>
+                    <div class="map-route route-purple"><span></span><span></span><span></span></div>
+                    <button type="button" class="unit-marker marker-blue" data-unit="pv-01" aria-label="Ver detalles de GR-01, en ruta"><i class="fas fa-bus" aria-hidden="true"></i><span>GR-01</span></button>
+                    <button type="button" class="unit-marker marker-orange" data-unit="pv-02" aria-label="Ver detalles de GR-02, en ruta"><i class="fas fa-bus" aria-hidden="true"></i><span>GR-02</span></button>
+                    <button type="button" class="unit-marker marker-purple" data-unit="pv-03" aria-label="Ver detalles de GR-03, en parada"><i class="fas fa-bus" aria-hidden="true"></i><span>GR-03</span></button>
+                    <div class="map-pin pin-airport"><i class="fas fa-plane" aria-hidden="true"></i><span>Aeropuerto</span></div>
+                    <div class="map-pin pin-marina"><i class="fas fa-anchor" aria-hidden="true"></i><span>Marina Vallarta</span></div>
+                    <div class="map-scale"><span></span><small>5 km</small></div>
+                    <div class="map-compass"><span>N</span><i class="fas fa-location-arrow" aria-hidden="true"></i></div>
+                </div>
+                <div class="map-footer"><span><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Bahía de Banderas, Nayarit / Jalisco</span><span><i class="fas fa-wifi" aria-hidden="true"></i> Red de monitoreo segura</span></div>
+            </article>
+
+            <aside class="panel units-panel" aria-labelledby="units-title">
+                <div class="panel-heading">
+                    <div><p class="panel-kicker">Flota conectada</p><h2 id="units-title">Mis unidades <span class="heading-count">3</span></h2></div>
+                    <button type="button" class="text-button" data-open-contact>+ Agregar unidad</button>
+                </div>
+                <div class="unit-list" id="unit-list">
+                    <button type="button" class="unit-card selected" data-unit-card="pv-01">
+                        <span class="unit-avatar avatar-blue"><i class="fas fa-bus" aria-hidden="true"></i></span>
+                        <span class="unit-card-content"><span class="unit-card-top"><strong>GR-01 · Sprinter</strong><span class="status-label status-moving"><span></span> En ruta</span></span><span class="unit-card-meta"><i class="fas fa-route" aria-hidden="true"></i> Aeropuerto → Sayulita</span><span class="unit-card-bottom"><span><i class="fas fa-tachometer-alt" aria-hidden="true"></i> 62 km/h</span><span>ETA 10:42</span></span></span>
+                        <i class="fas fa-chevron-right unit-chevron" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="unit-card" data-unit-card="pv-02">
+                        <span class="unit-avatar avatar-orange"><i class="fas fa-bus" aria-hidden="true"></i></span>
+                        <span class="unit-card-content"><span class="unit-card-top"><strong>GR-02 · Volvo 9700</strong><span class="status-label status-moving"><span></span> En ruta</span></span><span class="unit-card-meta"><i class="fas fa-route" aria-hidden="true"></i> Centro → Punta Mita</span><span class="unit-card-bottom"><span><i class="fas fa-tachometer-alt" aria-hidden="true"></i> 48 km/h</span><span>ETA 11:05</span></span></span>
+                        <i class="fas fa-chevron-right unit-chevron" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="unit-card" data-unit-card="pv-03">
+                        <span class="unit-avatar avatar-purple"><i class="fas fa-shuttle-van" aria-hidden="true"></i></span>
+                        <span class="unit-card-content"><span class="unit-card-top"><strong>GR-03 · JAC Sunray</strong><span class="status-label status-stop"><span></span> En parada</span></span><span class="unit-card-meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Hotel Marival, Nuevo Vallarta</span><span class="unit-card-bottom"><span><i class="fas fa-stopwatch" aria-hidden="true"></i> 04:18 min</span><span>Reanuda 10:36</span></span></span>
+                        <i class="fas fa-chevron-right unit-chevron" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <div class="units-panel-footer"><span><span class="live-pulse"></span> GPS y telemetría activos</span><button type="button" class="text-button" data-scroll-history>Ver historial <i class="fas fa-arrow-right" aria-hidden="true"></i></button></div>
+            </aside>
+        </section>
+
+        <section class="tracking-grid tracking-grid-secondary">
+            <article class="panel route-panel" aria-labelledby="route-title">
+                <div class="panel-heading route-heading">
+                    <div><p class="panel-kicker">Detalle de recorrido</p><h2 id="route-title">Ruta de GR-01 <span class="route-live-badge"><span></span> En vivo</span></h2></div>
+                    <div class="route-actions"><button type="button" class="outline-button" data-export-route><i class="fas fa-download" aria-hidden="true"></i> Exportar</button><button type="button" class="icon-button" title="Más opciones" aria-label="Más opciones"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></button></div>
+                </div>
+                <div class="route-summary"><div><span class="summary-label">Origen</span><strong id="route-origin">Aeropuerto PVR</strong><small>09:18 · Salida</small></div><i class="fas fa-long-arrow-alt-right route-arrow" aria-hidden="true"></i><div><span class="summary-label">Destino</span><strong id="route-destination">Sayulita Centro</strong><small id="route-arrival">ETA 10:42 · 18.4 km</small></div><div class="route-progress-wrap"><span class="summary-label">Progreso</span><div class="route-progress"><span id="route-progress-bar" style="width: 68%"></span></div><strong id="route-progress-text">68%</strong></div></div>
+                <div class="route-timeline" id="route-timeline"><div class="timeline-item completed"><span class="timeline-node"><i class="fas fa-check" aria-hidden="true"></i></span><div><strong>Salida del Aeropuerto Internacional PVR</strong><small>09:18 · Puerto Vallarta, Jalisco</small></div></div><div class="timeline-item completed"><span class="timeline-node"><i class="fas fa-check" aria-hidden="true"></i></span><div><strong>Parada técnica · Marina Vallarta</strong><small>09:34 · 06 min de espera</small></div></div><div class="timeline-item current"><span class="timeline-node"><i class="fas fa-location-arrow" aria-hidden="true"></i></span><div><strong>En tránsito hacia Sayulita</strong><small>Última señal 10:27 · Velocidad 62 km/h</small></div><span class="timeline-tag">Actual</span></div><div class="timeline-item upcoming"><span class="timeline-node"><i class="fas fa-flag-checkered" aria-hidden="true"></i></span><div><strong>Llegada estimada · Sayulita Centro</strong><small>10:42 · 14 minutos</small></div></div></div>
+                <div class="route-insights"><div><i class="fas fa-road" aria-hidden="true"></i><span>Distancia total<strong>27.1 km</strong></span></div><div><i class="fas fa-stopwatch" aria-hidden="true"></i><span>Tiempo en ruta<strong>01 h 24 min</strong></span></div><div><i class="fas fa-gas-pump" aria-hidden="true"></i><span>Consumo estimado<strong>8.2 L</strong></span></div></div>
+            </article>
+
+            <article class="panel video-panel" aria-labelledby="video-title">
+                <div class="panel-heading"><div><p class="panel-kicker">Supervisión remota</p><h2 id="video-title">Video en vivo</h2></div><span class="secure-label"><i class="fas fa-lock" aria-hidden="true"></i> Privado</span></div>
+                <button type="button" class="video-preview" data-open-video aria-label="Abrir video en vivo de GR-01"><span class="video-grid-lines"></span><span class="video-road"></span><span class="video-vehicle"></span><span class="video-overlay-label"><span class="recording-dot"></span> LIVE · GR-01 / CABINA</span><span class="video-timecode">10:27:16</span><span class="video-play"><i class="fas fa-play" aria-hidden="true"></i></span><span class="video-preview-caption">Abrir vista en vivo <i class="fas fa-expand-alt" aria-hidden="true"></i></span></button>
+                <div class="video-controls"><div class="camera-select-wrap"><i class="fas fa-video" aria-hidden="true"></i><select id="camera-select" aria-label="Seleccionar cámara"><option value="GR-01-cabina">GR-01 · Cabina</option><option value="GR-01-exterior">GR-01 · Exterior</option><option value="GR-02-cabina">GR-02 · Cabina</option></select></div><span class="video-health"><span></span> Señal estable</span><button type="button" class="icon-button" data-open-video title="Abrir video" aria-label="Abrir video"><i class="fas fa-expand" aria-hidden="true"></i></button></div>
+                <p class="video-note"><i class="fas fa-info-circle" aria-hidden="true"></i> En el piloto, cada unidad podrá transmitir video con permisos por rol y registro de acceso.</p>
+            </article>
+        </section>
+
+        <section class="panel history-panel" id="history-panel" aria-labelledby="history-title">
+            <div class="panel-heading history-heading"><div><p class="panel-kicker">Trazabilidad</p><h2 id="history-title">Rutas tomadas hoy</h2></div><div class="history-tools"><label class="date-filter"><i class="fas fa-calendar-alt" aria-hidden="true"></i><select aria-label="Seleccionar fecha"><option>Hoy, 18 ago 2026</option><option>Ayer, 17 ago 2026</option><option>17 ago 2026</option></select></label><button type="button" class="outline-button" data-export-history><i class="fas fa-file-csv" aria-hidden="true"></i> Descargar CSV</button></div></div>
+            <div class="history-table-wrap"><table class="history-table"><thead><tr><th>Unidad</th><th>Ruta</th><th>Inicio</th><th>Fin</th><th>Distancia</th><th>Estado</th><th><span class="sr-only">Acción</span></th></tr></thead><tbody><tr><td><span class="table-unit"><span class="table-unit-dot blue"></span><strong>GR-01</strong><small>Sprinter</small></span></td><td><strong>Aeropuerto PVR → Sayulita</strong><small>Vía Carretera Federal 200</small></td><td>09:18</td><td>—</td><td>18.4 km</td><td><span class="table-status progress-status"><span></span> En curso</span></td><td><button type="button" class="table-action" data-unit-card="pv-01">Ver ruta</button></td></tr><tr><td><span class="table-unit"><span class="table-unit-dot orange"></span><strong>GR-02</strong><small>Volvo 9700</small></span></td><td><strong>Centro PV → Punta Mita</strong><small>Vía Las Juntas</small></td><td>08:42</td><td>—</td><td>42.7 km</td><td><span class="table-status progress-status"><span></span> En curso</span></td><td><button type="button" class="table-action" data-unit-card="pv-02">Ver ruta</button></td></tr><tr><td><span class="table-unit"><span class="table-unit-dot purple"></span><strong>GR-03</strong><small>JAC Sunray</small></span></td><td><strong>Nuevo Vallarta → Marina PV</strong><small>Vía Av. Cocodrilo</small></td><td>07:55</td><td>09:14</td><td>15.7 km</td><td><span class="table-status done-status"><span></span> Completada</span></td><td><button type="button" class="table-action" data-unit-card="pv-03">Ver ruta</button></td></tr></tbody></table></div>
+            <div class="history-footnote"><i class="fas fa-history" aria-hidden="true"></i> El sistema conserva el historial para auditoría operativa, atención a clientes y mejora de rutas.</div>
+        </section>
+
+        <section class="pilot-cta" aria-labelledby="pilot-cta-title">
+            <div class="pilot-cta-icon"><i class="fas fa-lightbulb" aria-hidden="true"></i></div>
+            <div><p class="panel-kicker">Siguiente paso sugerido</p><h2 id="pilot-cta-title">Convirtamos esta demo en una operación piloto medible.</h2><p>Podemos comenzar con 3 unidades, 30 días de seguimiento y un reporte semanal de puntualidad, kilómetros y alertas.</p></div>
+            <button type="button" class="btn btn-primary" data-open-contact>Quiero conocer el piloto <i class="fas fa-arrow-right" aria-hidden="true"></i></button>
+        </section>
+    </main>
+
+    <footer class="tracking-footer"><div class="tracking-shell"><span>© 2026 GR Travels · Centro de Control Demo</span><span><i class="fas fa-shield-alt" aria-hidden="true"></i> Propuesta de monitoreo para autorización</span><a href="privacidad.html">Privacidad</a></div></footer>
+
+    <div class="modal-backdrop" id="video-modal" role="dialog" aria-modal="true" aria-labelledby="video-modal-title" hidden>
+        <div class="modal-card video-modal-card"><button type="button" class="modal-close" data-close-modal aria-label="Cerrar video"><i class="fas fa-times" aria-hidden="true"></i></button><div class="modal-video-stage"><span class="video-grid-lines"></span><span class="video-road"></span><span class="video-vehicle large"></span><span class="video-overlay-label"><span class="recording-dot"></span> LIVE · <span id="modal-camera-name">GR-01 / CABINA</span></span><span class="video-timecode" id="modal-timecode">10:27:16</span><div class="video-modal-center"><i class="fas fa-satellite-dish" aria-hidden="true"></i><strong>Señal de demostración activa</strong><span>Stream seguro · Latencia estimada 1.2 s</span></div></div><div class="modal-video-footer"><div><p class="panel-kicker">Video en vivo · Demo</p><h2 id="video-modal-title">GR-01 · Cámara de cabina</h2></div><span class="video-health"><span></span> Conectado</span></div><div class="modal-video-actions"><button type="button" class="outline-button" data-toggle-stream><i class="fas fa-pause" aria-hidden="true"></i> Pausar señal</button><button type="button" class="outline-button"><i class="fas fa-volume-up" aria-hidden="true"></i> Audio</button><button type="button" class="outline-button"><i class="fas fa-camera" aria-hidden="true"></i> Capturar evidencia</button></div></div>
+    </div>
+
+    <div class="modal-backdrop" id="contact-modal" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title" hidden>
+        <div class="modal-card contact-modal-card"><button type="button" class="modal-close" data-close-modal aria-label="Cerrar formulario"><i class="fas fa-times" aria-hidden="true"></i></button><div class="contact-modal-copy"><span class="contact-modal-icon"><i class="fas fa-rocket" aria-hidden="true"></i></span><p class="panel-kicker">Piloto de monitoreo</p><h2 id="contact-modal-title">Llevemos la demo a la operación real.</h2><p>Déjanos tus datos y el equipo de GR Travels podrá presentar una propuesta de instalación, capacitación y métricas para las primeras 3 unidades.</p></div><form class="pilot-form" id="pilot-form"><label for="pilot-name">Nombre</label><input id="pilot-name" name="name" type="text" placeholder="Tu nombre" required><label for="pilot-email">Correo corporativo</label><input id="pilot-email" name="email" type="email" placeholder="nombre@empresa.com" required><label for="pilot-message">¿Qué te gustaría medir?</label><textarea id="pilot-message" name="message" rows="3" placeholder="Ej. puntualidad, seguridad, atención a clientes..."></textarea><button class="btn btn-primary" type="submit">Solicitar presentación <i class="fas fa-arrow-right" aria-hidden="true"></i></button><p class="pilot-form-status" id="pilot-form-status" role="status"></p></form></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" defer></script>
+    <script src="js/tracking-demo.js" defer></script>
+</body>
+</html>
