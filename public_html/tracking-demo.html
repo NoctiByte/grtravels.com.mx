@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/tracking-demo.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -65,6 +66,13 @@
             </article>
         </section>
 
+        <section class="tracking-live-strip" aria-label="Estado del centro de control">
+            <div class="live-status-pill"><span class="live-pulse"></span> 3 unidades conectadas</div>
+            <div class="live-status-pill subtle"><i class="fas fa-bolt" aria-hidden="true"></i> Latencia 1.2 s</div>
+            <div class="live-status-pill subtle"><i class="fas fa-shield-alt" aria-hidden="true"></i> Red segura</div>
+            <div class="live-clock" id="live-clock" aria-live="polite">10:27:16</div>
+        </section>
+
         <section class="tracking-grid tracking-grid-main">
             <article class="panel map-panel" aria-labelledby="map-title">
                 <div class="panel-heading">
@@ -83,23 +91,7 @@
                     <button type="button" class="map-filter" data-map-filter="stop"><span class="filter-dot stop-dot"></span> En parada <b>1</b></button>
                     <span class="map-legend-note"><i class="fas fa-info-circle" aria-hidden="true"></i> Posiciones simuladas</span>
                 </div>
-                <div class="demo-map" id="demo-map" aria-label="Mapa simulado de Bahía de Banderas con tres unidades">
-                    <div class="map-water-label">BAHÍA DE BANDERAS</div>
-                    <div class="map-land-label land-pv">PUERTO<br>VALLARTA</div>
-                    <div class="map-land-label land-nv">NUEVO<br>VALLARTA</div>
-                    <div class="map-land-label land-sp">SAN PANCHO</div>
-                    <div class="map-road road-one"></div><div class="map-road road-two"></div><div class="map-road road-three"></div>
-                    <div class="map-route route-blue"><span></span><span></span><span></span></div>
-                    <div class="map-route route-orange"><span></span><span></span><span></span></div>
-                    <div class="map-route route-purple"><span></span><span></span><span></span></div>
-                    <button type="button" class="unit-marker marker-blue" data-unit="pv-01" aria-label="Ver detalles de GR-01, en ruta"><i class="fas fa-bus" aria-hidden="true"></i><span>GR-01</span></button>
-                    <button type="button" class="unit-marker marker-orange" data-unit="pv-02" aria-label="Ver detalles de GR-02, en ruta"><i class="fas fa-bus" aria-hidden="true"></i><span>GR-02</span></button>
-                    <button type="button" class="unit-marker marker-purple" data-unit="pv-03" aria-label="Ver detalles de GR-03, en parada"><i class="fas fa-bus" aria-hidden="true"></i><span>GR-03</span></button>
-                    <div class="map-pin pin-airport"><i class="fas fa-plane" aria-hidden="true"></i><span>Aeropuerto</span></div>
-                    <div class="map-pin pin-marina"><i class="fas fa-anchor" aria-hidden="true"></i><span>Marina Vallarta</span></div>
-                    <div class="map-scale"><span></span><small>5 km</small></div>
-                    <div class="map-compass"><span>N</span><i class="fas fa-location-arrow" aria-hidden="true"></i></div>
-                </div>
+                <div class="demo-map" id="demo-map" aria-label="Mapa real de la zona con unidades en tránsito"></div>
                 <div class="map-footer"><span><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Bahía de Banderas, Nayarit / Jalisco</span><span><i class="fas fa-wifi" aria-hidden="true"></i> Red de monitoreo segura</span></div>
             </article>
 
@@ -172,6 +164,7 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" defer></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
     <script src="js/tracking-demo.js" defer></script>
 </body>
 </html>
